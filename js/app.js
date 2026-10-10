@@ -49,6 +49,8 @@ const DUEL_CUES = Object.freeze({
 const COPY_LABELS = Object.freeze({
   prompt: "Prompt",
   command: "Command",
+  npm: "npm command",
+  pypi: "PyPI commands",
 });
 
 if (typeof document !== "undefined") {
@@ -262,7 +264,36 @@ function initializeCopyButtons(doc) {
   const fields = {
     prompt: doc.querySelector("#install-prompt"),
     command: doc.querySelector("#install-command"),
+    npm: doc.querySelector("#install-npm"),
+    pypi: doc.querySelector("#install-pypi"),
   };
+
+  const picker = doc.querySelector(".install-picker");
+  const choices = Array.from(doc.querySelectorAll("[data-install]"));
+  const panels = Array.from(doc.querySelectorAll("[data-install-panel]"));
+  const initialStatus = copyStatus ? copyStatus.textContent.trim() : "";
+  function selectInstallMethod(method) {
+    if (!panels.some((panel) => panel.dataset.installPanel === method)) return;
+    for (const panel of panels) {
+      panel.hidden = panel.dataset.installPanel !== method;
+    }
+    for (const choice of choices) {
+      choice.setAttribute(
+        "aria-pressed",
+        String(choice.dataset.install === method),
+      );
+    }
+    setStatus(copyStatus, initialStatus);
+  }
+  if (picker && panels.length) {
+    selectInstallMethod("codex");
+    picker.hidden = false;
+    for (const choice of choices) {
+      choice.addEventListener("click", () =>
+        selectInstallMethod(choice.dataset.install),
+      );
+    }
+  }
 
   if (copyStatus) copyStatus.setAttribute("aria-live", "polite");
 

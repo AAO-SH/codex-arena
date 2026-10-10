@@ -15,7 +15,7 @@ Visitors choose a demo quest, watch a three-part walkthrough comparing approache
 
 The arena separates the background from a transparent two-mascot sprite atlas. A finite 5.6-second timeline animates alternating lunges and shields, a friendly clash, recovery, and verification. The reward book pops into view with a short ray and confetti burst. A Skip control ends the sequence immediately. No sounds or perpetual loops are added. Reduced motion uses static ready/verify states and a still reward; changing that preference during a duel cancels the remaining movement.
 
-The installation card provides a prompt to copy into Codex and an expandable terminal command. It states the Python and Codex CLI requirements and links to the full repository guide. Installation does not start a tournament.
+The installation card offers three compact, game-menu choices: Ask Codex, npm, and PyPI. Each reveals its own copyable prompt or commands, requirements, and package link. A source install stays in a disclosure. All methods target the visitor's current project folder. Without JavaScript the methods remain readable together. Installation does not start a tournament.
 
 ## Interaction and accessibility
 

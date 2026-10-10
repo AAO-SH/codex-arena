@@ -11,7 +11,7 @@ The playful, static home of [Codex Arena](https://github.com/AAO-SH/codex-arena)
 - Three illustrative quests: fix a bug, review code, organize knowledge.
 - Animated mascot attacks and shield blocks in a short strategy duel.
 - A celebratory playbook unlock, with skip, replay, and reduced-motion controls.
-- Copyable installation prompt and terminal commands for any workspace.
+- Copyable Codex prompt, npm and PyPI installation commands, and a source option for any workspace.
 - Responsive layout, keyboard controls, reduced-motion support, and a manual copy fallback.
 
 The demo makes **no model calls** and produces no measured tournament results. Installing the skill does not start a tournament.
@@ -52,7 +52,7 @@ GitHub Pages publishes **`gh-pages` → `/`**. `.nojekyll` preserves the static 
 | `assets/fonts/`       | Self-hosted Fredoka and its OFL license                   |
 | `docs/`               | Image provenance and verification notes                   |
 
-Installation currently uses the public GitHub source. Add registry commands only after confirming the packages are publicly installable. Keep simulation labels and do not present illustrative output as verified results.
+The npm (`@aao-sh/codex-arena`) and PyPI (`codex-arena`) packages are public. Keep the commands aligned with their CLI entrypoints, preserve the source install option, and retain the illustrative-demo labels.
 
 ## Credits
 

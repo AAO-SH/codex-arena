@@ -695,6 +695,56 @@ h1 {
   align-items: center;
   margin-bottom: 9px;
 }
+.install-picker {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr 1fr;
+  gap: 7px;
+  margin-bottom: 19px;
+}
+.install-choice {
+  min-width: 0;
+  min-height: 44px;
+  padding: 8px 6px;
+  border: 1.5px solid #a38f68;
+  border-radius: 8px;
+  color: var(--ink);
+  background: var(--paper);
+  font-family: var(--display);
+  font-size: 16px;
+  box-shadow: 0 3px 4px #152b421c;
+}
+.install-choice:hover {
+  background: #ffedb6;
+}
+.install-choice[aria-pressed="true"] {
+  background: var(--gold);
+  border-color: var(--ink);
+  box-shadow: inset 0 -3px 0 #ad731a33;
+}
+.install-panel + .install-panel {
+  margin-top: 18px;
+}
+.install-picker:not([hidden]) ~ .install-panel {
+  margin-top: 0;
+}
+.install-hint {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+  margin: 0 0 10px;
+}
+.package-link {
+  display: block;
+  width: fit-content;
+  margin: 13px auto 0;
+  color: var(--blue-dark);
+  font-size: 12px;
+  text-underline-offset: 3px;
+}
+.install-box .package-command {
+  min-height: 100px;
+  font-size: 12px;
+}
 .install-box-heading label {
   font-family: var(--display);
   font-size: 18px;

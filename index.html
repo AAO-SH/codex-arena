@@ -406,35 +406,152 @@
           />
           <div>
             <h2 id="install-title">Bring the Arena<br />to your workspace.</h2>
-            <p>
-              Open your project in Codex.<br />Copy this prompt. Let it do the
-              setup.
-            </p>
+            <p>Choose your setup path.<br />Copy. Install. Enter the Arena.</p>
             <span class="requirement">Python 3.11+ · Codex CLI</span>
           </div>
         </div>
         <div class="install-box">
-          <div class="install-box-heading">
-            <label for="install-prompt"
-              ><span aria-hidden="true">›_</span> Give this to Codex</label
-            ><span class="local-badge">Local install</span>
+          <div
+            class="install-picker"
+            role="group"
+            aria-label="Choose an installation method"
+            hidden
+          >
+            <button
+              id="choose-codex"
+              class="install-choice"
+              type="button"
+              data-install="codex"
+              aria-controls="setup-codex"
+              aria-pressed="true"
+            >
+              Ask Codex
+            </button>
+            <button
+              id="choose-npm"
+              class="install-choice"
+              type="button"
+              data-install="npm"
+              aria-controls="setup-npm"
+              aria-pressed="false"
+            >
+              npm
+            </button>
+            <button
+              id="choose-pypi"
+              class="install-choice"
+              type="button"
+              data-install="pypi"
+              aria-controls="setup-pypi"
+              aria-pressed="false"
+            >
+              PyPI
+            </button>
           </div>
-          <textarea id="install-prompt" readonly spellcheck="false" rows="5">
+          <div
+            id="setup-codex"
+            class="install-panel"
+            data-install-panel="codex"
+            role="region"
+            aria-label="Install with Codex"
+          >
+            <div class="install-box-heading">
+              <label for="install-prompt"
+                ><span aria-hidden="true">›_</span> Give this to Codex</label
+              ><span class="local-badge">Local install</span>
+            </div>
+            <textarea id="install-prompt" readonly spellcheck="false" rows="5">
 Install Codex Arena in this workspace:
 https://github.com/AAO-SH/codex-arena
 Use --bootstrap and check the environment with doctor.
 Show me the plan before starting any tournament.</textarea
+            >
+            <button
+              class="button button-blue copy-button"
+              data-copy="prompt"
+              type="button"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="8" y="8" width="12" height="13" rx="2" />
+                <path d="M15 8V3H3v13h5" /></svg
+              >Copy install prompt
+            </button>
+          </div>
+          <div
+            id="setup-npm"
+            class="install-panel"
+            data-install-panel="npm"
+            role="region"
+            aria-label="Install with npm"
           >
-          <button
-            class="button button-blue copy-button"
-            data-copy="prompt"
-            type="button"
+            <div class="install-box-heading">
+              <label for="install-npm">Take the npm path</label>
+              <span class="local-badge">Node.js 22+</span>
+            </div>
+            <p class="install-hint">Run in your project folder.</p>
+            <textarea
+              id="install-npm"
+              class="package-command"
+              readonly
+              spellcheck="false"
+              rows="3"
+            >
+npx @aao-sh/codex-arena install --workspace . --bootstrap</textarea
+            >
+            <button
+              class="button button-blue copy-button"
+              data-copy="npm"
+              type="button"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="8" y="8" width="12" height="13" rx="2" />
+                <path d="M15 8V3H3v13h5" /></svg
+              >Copy npm command
+            </button>
+            <a
+              class="package-link"
+              href="https://www.npmjs.com/package/@aao-sh/codex-arena"
+              >View on npm ↗</a
+            >
+          </div>
+          <div
+            id="setup-pypi"
+            class="install-panel"
+            data-install-panel="pypi"
+            role="region"
+            aria-label="Install with PyPI"
           >
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <rect x="8" y="8" width="12" height="13" rx="2" />
-              <path d="M15 8V3H3v13h5" /></svg
-            >Copy install prompt
-          </button>
+            <div class="install-box-heading">
+              <label for="install-pypi">Take the Python path</label>
+              <span class="local-badge">PyPI · pip</span>
+            </div>
+            <p class="install-hint">
+              Use your Python environment, inside your project folder.
+            </p>
+            <textarea
+              id="install-pypi"
+              class="package-command"
+              readonly
+              spellcheck="false"
+              rows="3"
+            >
+python -m pip install codex-arena
+codex-arena install --workspace . --bootstrap</textarea
+            >
+            <button
+              class="button button-blue copy-button"
+              data-copy="pypi"
+              type="button"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="8" y="8" width="12" height="13" rx="2" />
+                <path d="M15 8V3H3v13h5" /></svg
+              >Copy PyPI commands
+            </button>
+            <a class="package-link" href="https://pypi.org/project/codex-arena/"
+              >View on PyPI ↗</a
+            >
+          </div>
           <p
             id="copy-status"
             class="copy-status"
@@ -445,7 +562,7 @@ Show me the plan before starting any tournament.</textarea
           </p>
           <details class="terminal-install">
             <summary>
-              Prefer the terminal? <span aria-hidden="true">+</span>
+              Install from source <span aria-hidden="true">+</span>
             </summary>
             <div class="terminal-content">
               <label for="install-command"

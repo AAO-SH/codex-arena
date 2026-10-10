@@ -27,3 +27,10 @@ Independent review found a focus handoff issue and a platform-specific copy-shor
 - All loaded images resolved. No console errors or warnings were recorded in the updated local demo.
 - Reduced motion has deterministic timer tests and CSS guards. System-level browser emulation remains outside the checks performed in this session.
 - The update adds a transparent mascot atlas and a clean arena background. The old composite scene remains as source artwork but is not loaded by the page.
+
+## Package installation options — 2026-10-10
+
+- The installation menu offers Ask Codex, npm, and PyPI, with the GitHub source method kept in a disclosure. Commands match the published launchers; npm requires Node.js 22+.
+- The 22 existing tests, JavaScript syntax check, and whitespace check pass. In-app Chromium confirmed both new copy buttons write the exact displayed commands to the clipboard, including the newline between the two PyPI commands.
+- Method selection works by keyboard, exposes the active choice with `aria-pressed`, hides inactive regions, and resets copy feedback. Desktop and 390px mobile were inspected; at 320px there is no horizontal page overflow and all method buttons remain at least 44px high.
+- No browser console errors or warnings were observed. Package commands use 12px text on mobile. Installation commands were checked against the public entrypoints, not executed during website testing.
