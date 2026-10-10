@@ -194,3 +194,24 @@ test("completion does not move focus after the user leaves the duel controls", (
   assert.equal(fixture.elements.get("#arena-demo").dataset.phase, "complete");
   assert.equal(fixture.doc.activeElement, elsewhere);
 });
+
+test("enabling motion after a reduced-motion reward does not replay its celebration", () => {
+  const fixture = createDemoFixture();
+  const clock = createFakeClock();
+  const motion = initializeFixture(fixture, clock, createMotionQuery(true));
+  const arena = fixture.elements.get("#arena-demo");
+
+  fixture.elements.get("#duel-button").click();
+  clock.tick(700);
+  assert.equal(arena.dataset.phase, "complete");
+  assert.equal(arena.dataset.rewardMotion, "false");
+
+  motion.change(false);
+  assert.equal(arena.dataset.reducedMotion, "false");
+  assert.equal(arena.dataset.rewardMotion, "false");
+  assert.equal(clock.pendingCount, 0);
+
+  fixture.elements.get("#replay-button").click();
+  fixture.elements.get("#duel-button").click();
+  assert.equal(arena.dataset.rewardMotion, "true");
+});

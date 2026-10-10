@@ -80,6 +80,7 @@ export function initializeDemo(doc, options = {}) {
   let state = createInitialState();
   let beat = "ready";
   let timeline = null;
+  let rewardMotionAllowed = false;
   const initialDuelMarkup = duelButton ? duelButton.innerHTML : "";
 
   if (demoStatus) demoStatus.setAttribute("aria-live", "polite");
@@ -90,6 +91,7 @@ export function initializeDemo(doc, options = {}) {
     arena.dataset.phase = state.phase;
     arena.dataset.beat = beat;
     arena.dataset.reducedMotion = String(reducedMotion);
+    arena.dataset.rewardMotion = String(rewardMotionAllowed);
 
     if (phaseTitle) phaseTitle.textContent = phaseContent.title;
     if (phaseCopy) {
@@ -180,6 +182,7 @@ export function initializeDemo(doc, options = {}) {
         (doc.activeElement === duelButton || doc.activeElement === doc.body);
       state = reduceArenaState(state, { type: "start" });
       beat = "ready";
+      rewardMotionAllowed = !reducedMotion;
       render();
       if (shouldFocusSkip && !skipButton.hidden) {
         skipButton.focus({ preventScroll: true });
@@ -238,6 +241,7 @@ export function initializeDemo(doc, options = {}) {
       const nextReducedMotion = Boolean(event.matches);
       if (nextReducedMotion === reducedMotion) return;
       reducedMotion = nextReducedMotion;
+      if (reducedMotion) rewardMotionAllowed = false;
       render();
       if (timeline) timeline.finish();
     };

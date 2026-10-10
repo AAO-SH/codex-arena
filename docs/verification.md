@@ -19,7 +19,7 @@ Independent review found a focus handoff issue and a platform-specific copy-shor
 
 ## Animated duel update — 2026-10-10
 
-- `npm test`: 21 passing tests, including timeline boundaries, cancellation, stale callbacks, skip/replay, a live motion-preference change, and focus preservation when a visitor leaves the duel controls.
+- `npm test`: 22 passing tests, including timeline boundaries, cancellation, stale callbacks, skip/replay, a live motion-preference change, and focus preservation when a visitor leaves the duel controls. Enabling motion after a reduced-motion reward cannot restart the celebration; a new duel can animate normally.
 - JavaScript syntax checks and `git diff --check` passed.
 - In-app Chromium: the blue lunge and red shield were observed in motion, with nonidentity transforms and the shield visible during the block. The book reveal and finite confetti animation were confirmed through rendered styles; the persistent reward was inspected visually.
 - Skip unlocks the book immediately, clears the timeline, and focuses Replay. Replay restores Start and supports another sequence.

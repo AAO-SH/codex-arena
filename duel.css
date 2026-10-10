@@ -622,6 +622,15 @@
 }
 
 /* Preference changes also finish the logical sequence; these selectors remove spatial effects. */
+[data-reward-motion="false"] .reward,
+[data-reward-motion="false"] .reward * {
+  animation: none !important;
+  transition: none !important;
+}
+[data-reward-motion="false"] .reward-rays,
+[data-reward-motion="false"] .reward-confetti {
+  display: none;
+}
 [data-reduced-motion="true"] .combat-layer *,
 [data-reduced-motion="true"] .reward,
 [data-reduced-motion="true"] .reward * {
