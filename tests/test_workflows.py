@@ -183,9 +183,13 @@ def test_invalid_tiers_and_duplicate_case_ids_rejected_before_jobs(tmp_path):
     assert not (tmp_path / '.scratch/arena').exists()
 
 
-def test_live_self_tests_use_enforced_profile_without_legacy_sandbox(tmp_path):
+def test_live_self_tests_use_enforced_profile_without_legacy_sandbox(tmp_path, monkeypatch):
+    # This test inspects argv; it must not depend on an installed Codex CLI.
+    executable = str(tmp_path / 'codex')
+    monkeypatch.setattr(workflows.shutil, 'which', lambda name: executable)
     script = tmp_path / 'strategy.py'
     command = workflows.self_test_command(script, tmp_path, isolated=True)
+    assert command[0] == executable
     assert 'sandbox' in command
     assert '--permission-profile' in command
     assert 'arena_job' in command
@@ -193,6 +197,12 @@ def test_live_self_tests_use_enforced_profile_without_legacy_sandbox(tmp_path):
     assert ':root' in ' '.join(command)
     assert '--self-test' in command
     assert not any(item.startswith('permissions.arena_job.filesystem."') for item in command)
+
+
+def test_live_self_test_command_requires_codex_cli(tmp_path, monkeypatch):
+    monkeypatch.setattr(workflows.shutil, 'which', lambda name: None)
+    with pytest.raises(RuntimeError, match='Codex sandbox is required'):
+        workflows.self_test_command(tmp_path / 'strategy.py', tmp_path, isolated=True)
 
 
 def test_build_from_completed_simulated_eight_entrant_tournament(tmp_path, monkeypatch):
