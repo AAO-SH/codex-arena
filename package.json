@@ -1,0 +1,11 @@
+{
+  "name": "codex-arena-webpage",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Static, playful home of Codex Arena",
+  "scripts": {
+    "test": "node --test",
+    "serve": "python -m http.server 4173 --bind 127.0.0.1"
+  }
+}

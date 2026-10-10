@@ -1,0 +1,1448 @@
+@font-face {
+  font-family: Fredoka;
+  src: url("assets/fonts/fredoka.ttf") format("truetype");
+  font-weight: 300 700;
+  font-display: swap;
+}
+:root {
+  --ink: #152b42;
+  --muted: #465d67;
+  --sky: #e8f5f4;
+  --paper: #fff9e9;
+  --cream: #fff0c9;
+  --blue: #1368d3;
+  --blue-dark: #124b96;
+  --red: #c93539;
+  --gold: #ffcf5b;
+  --line: #bdd4d3;
+  --display: Fredoka, "Trebuchet MS", sans-serif;
+  --body: "Segoe UI", system-ui, sans-serif;
+  --shadow: 0 10px 24px #15334712;
+  --outline: 2px solid var(--ink);
+}
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 24px;
+}
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--sky);
+  font-family: var(--body);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+button,
+textarea {
+  font: inherit;
+}
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+button {
+  cursor: pointer;
+}
+button:disabled {
+  cursor: wait;
+}
+a {
+  color: inherit;
+  text-underline-offset: 4px;
+}
+a:hover {
+  color: var(--blue-dark);
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+svg {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+[hidden] {
+  display: none !important;
+}
+button:focus-visible,
+a:focus-visible,
+summary:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 5px;
+}
+button:disabled {
+  opacity: 0.68;
+}
+.wrap {
+  width: min(1320px, calc(100% - 80px));
+  margin-inline: auto;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+.skip-link {
+  position: fixed;
+  z-index: 20;
+  top: 12px;
+  left: 16px;
+  transform: translateY(-200%);
+  padding: 12px 20px;
+  background: var(--paper);
+  border: var(--outline);
+  border-radius: 8px;
+}
+.skip-link:focus {
+  transform: none;
+}
+.site-header {
+  min-height: 112px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.brand {
+  display: block;
+  width: 172px;
+  line-height: 0;
+  transition: transform 0.2s;
+}
+.brand:hover {
+  transform: rotate(-3deg);
+}
+.site-header nav {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+.nav-link {
+  font-weight: 650;
+  font-size: 14px;
+  text-decoration: none;
+}
+.github-link {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.github-link svg {
+  width: 19px;
+  height: 19px;
+}
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 54px;
+  padding: 13px 24px;
+  border: var(--outline);
+  border-radius: 13px;
+  font-family: var(--display);
+  font-size: 19px;
+  font-weight: 550;
+  line-height: 1.25;
+  text-decoration: none;
+  box-shadow:
+    0 4px 0 var(--ink),
+    0 7px 10px #14213d13;
+  transition:
+    transform 0.18s,
+    box-shadow 0.18s,
+    background 0.18s;
+}
+.button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow:
+    0 6px 0 var(--ink),
+    0 10px 14px #14213d15;
+}
+.button:active:not(:disabled) {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 var(--ink);
+}
+.button-blue {
+  background: var(--blue);
+  color: white;
+}
+.button-blue:hover {
+  background: var(--blue-dark);
+  color: white;
+}
+.button-yellow {
+  background: var(--gold);
+  color: var(--ink);
+}
+.button-yellow:hover {
+  background: #ffdb83;
+  color: var(--ink);
+}
+.button-small {
+  font-size: 16px;
+  min-height: 43px;
+  padding: 9px 18px;
+  border-radius: 11px;
+}
+.hero {
+  display: grid;
+  grid-template-columns: 0.85fr 1.35fr;
+  align-items: center;
+  gap: 45px;
+  padding: 36px 0 30px;
+}
+.hero-copy {
+  padding-bottom: 15px;
+}
+.intro {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 13px;
+  font-weight: 650;
+  margin: 0 0 20px;
+}
+.spark {
+  font-size: 25px;
+  color: var(--red);
+  line-height: 1;
+}
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+h1 {
+  font-family: var(--display);
+  font-weight: 550;
+  font-size: clamp(44px, 4.7vw, 68px);
+  letter-spacing: -1.8px;
+  line-height: 1.03;
+  margin-bottom: 26px;
+}
+.word-playbook {
+  position: relative;
+  display: inline-block;
+  color: var(--blue);
+  z-index: 0;
+}
+.word-playbook svg {
+  position: absolute;
+  bottom: -11px;
+  left: -2px;
+  width: 100%;
+  height: 18px;
+  stroke: var(--gold);
+  stroke-width: 7;
+  z-index: -1;
+}
+.hero-description {
+  font-size: 18px;
+  line-height: 1.65;
+  color: var(--muted);
+  max-width: 355px;
+  margin-bottom: 28px;
+}
+.hero-actions {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 15px;
+}
+.free-note {
+  font-size: 12px;
+  color: var(--muted);
+  padding-left: 9px;
+}
+.made-by {
+  margin-top: 31px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  font-size: 12px;
+  color: var(--muted);
+}
+.made-by a {
+  display: flex;
+}
+.made-by img {
+  width: 68px;
+  height: 24px;
+  object-fit: contain;
+}
+.arena-shell {
+  position: relative;
+  min-width: 0;
+  transform: rotate(1deg);
+  border: var(--outline);
+  border-radius: 24px;
+  background: var(--paper);
+  box-shadow:
+    0 7px 0 #b7d5d2,
+    0 18px 30px #15334713;
+  overflow: hidden;
+}
+.arena-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 20px 23px 12px;
+}
+.arena-heading h2 {
+  font-family: var(--display);
+  font-size: 22px;
+  font-weight: 550;
+  line-height: 1;
+  margin: 0;
+}
+.arena-heading h2 span {
+  color: var(--blue);
+  margin-right: 5px;
+}
+.demo-label {
+  font-size: 10px;
+  font-weight: 750;
+  text-transform: uppercase;
+  letter-spacing: 1.1px;
+  color: var(--muted);
+}
+.mission-picker {
+  display: flex;
+  gap: 7px;
+  padding: 0 20px 15px;
+}
+.mission {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  flex: 1;
+  padding: 9px 8px;
+  border: 1.5px solid #acb9b7;
+  border-radius: 9px;
+  background: transparent;
+  color: var(--ink);
+  font-size: 12px;
+  white-space: nowrap;
+  font-weight: 650;
+  transition:
+    background 0.15s,
+    transform 0.15s;
+}
+.mission svg {
+  width: 17px;
+  height: 17px;
+}
+.mission:hover:not(:disabled) {
+  background: #eef1e2;
+  transform: translateY(-1px);
+}
+.mission[aria-pressed="true"] {
+  background: #dcecff;
+  border-color: var(--blue-dark);
+  color: var(--blue-dark);
+  box-shadow: 0 2px 0 #a2c5f1;
+}
+.arena-world {
+  position: relative;
+  aspect-ratio: 1.55;
+  background: #cfeeee;
+  isolation: isolate;
+  overflow: hidden;
+  border-block: var(--outline);
+}
+.arena-scene {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition:
+    filter 0.7s,
+    transform 0.7s;
+}
+.quest-tag {
+  position: absolute;
+  top: 17px;
+  left: 18px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border: 1.5px solid var(--ink);
+  border-radius: 7px;
+  padding: 5px 10px;
+  background: #fff9e9eb;
+  font-size: 11px;
+  font-weight: 650;
+  box-shadow: 0 2px 0 #152b4226;
+}
+.quest-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--blue);
+}
+.versus {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-9deg);
+  font-family: var(--display);
+  font-size: 44px;
+  line-height: 1;
+  font-weight: 650;
+  color: #fff9e9;
+  -webkit-text-stroke: 2px var(--ink);
+  text-shadow: 2px 4px 0 var(--red);
+  transition: opacity 0.3s;
+}
+.team-tag {
+  position: absolute;
+  bottom: 37px;
+  font-family: var(--display);
+  font-weight: 550;
+  font-size: 16px;
+  border: var(--outline);
+  border-radius: 7px;
+  padding: 3px 13px;
+  color: white;
+  box-shadow: 0 3px 0 #152b4255;
+}
+.team-blue {
+  left: 12%;
+  background: var(--blue);
+  transform: rotate(-5deg);
+}
+.team-red {
+  right: 12%;
+  background: var(--red);
+  transform: rotate(5deg);
+}
+.world-footer {
+  position: absolute;
+  inset: auto 0 0;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  padding: 7px 12px;
+  background: #fff9e9ed;
+  font-size: 9px;
+  letter-spacing: 2px;
+  font-weight: 750;
+  line-height: 1;
+}
+.world-footer span + span:before {
+  content: "✦";
+  padding-right: 16px;
+  color: var(--red);
+}
+.arena-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 19px 21px 13px;
+  min-height: 96px;
+}
+.phase-message {
+  flex: 1;
+  min-width: 0;
+}
+.phase-message h3 {
+  font-family: var(--display);
+  font-weight: 550;
+  font-size: 20px;
+  line-height: 1.2;
+  margin-bottom: 5px;
+}
+.phase-message p {
+  font-size: 12px;
+  line-height: 1.5;
+  margin: 0;
+  color: var(--muted);
+  max-width: 290px;
+}
+.duel-actions {
+  flex-shrink: 0;
+}
+.duel-actions .button {
+  font-size: 16px;
+  min-height: 46px;
+  padding: 10px 16px;
+  border-radius: 10px;
+}
+.demo-note {
+  text-align: center;
+  font-size: 10px;
+  color: var(--muted);
+  margin: 0;
+  padding: 0 10px 13px;
+}
+.no-script {
+  font-size: 13px;
+  padding: 0 20px;
+}
+.reward {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: #e8f5f4dd;
+  z-index: 3;
+  animation: reveal 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.reward img {
+  width: 62%;
+  height: 82%;
+  object-fit: contain;
+  filter: drop-shadow(0 9px 7px #152b4224);
+}
+.reward-ribbon {
+  position: absolute;
+  bottom: 10%;
+  padding: 6px 20px;
+  border: var(--outline);
+  border-radius: 8px;
+  background: var(--gold);
+  font-family: var(--display);
+  font-weight: 550;
+  font-size: 22px;
+  transform: rotate(-3deg);
+}
+[data-phase="compare"] .versus {
+  animation: duel-pulse 0.7s ease-in-out infinite alternate;
+}
+[data-phase="validate"] .arena-scene {
+  filter: saturate(0.7);
+  transform: scale(1.025);
+}
+[data-phase="validate"] .versus {
+  opacity: 0;
+}
+[data-phase="validate"] .arena-world:after {
+  content: "✓";
+  position: absolute;
+  inset: 38% auto auto 50%;
+  transform: translateX(-50%);
+  display: grid;
+  place-items: center;
+  width: 65px;
+  height: 65px;
+  border: var(--outline);
+  border-radius: 50%;
+  background: var(--paper);
+  color: #12694e;
+  font-family: var(--display);
+  font-size: 45px;
+  box-shadow: 0 4px 0 #152b4233;
+}
+.quest-path {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: 37px 46px;
+  gap: 18px;
+}
+.path-step {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  transition: transform 0.3s;
+}
+.step-marker {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 54px;
+  height: 54px;
+  border: var(--outline);
+  border-radius: 16px;
+  transform: rotate(-5deg);
+  box-shadow: 0 3px 0 #152b422b;
+}
+.step-marker svg {
+  width: 27px;
+  height: 27px;
+}
+.marker-blue {
+  background: #bdddff;
+}
+.marker-red {
+  background: #ffd8ca;
+  transform: rotate(5deg);
+}
+.marker-gold {
+  background: #ffe297;
+}
+.path-step h2 {
+  font-family: var(--display);
+  font-size: 22px;
+  font-weight: 550;
+  line-height: 1.2;
+  margin: 0 0 5px;
+}
+.path-step p {
+  font-size: 12px;
+  margin: 0;
+  color: var(--muted);
+}
+.path-dots {
+  font-size: 23px;
+  color: #658481;
+  letter-spacing: 4px;
+}
+.path-step[aria-current="step"],
+.path-step.is-active {
+  transform: translateY(-4px);
+}
+.path-step[aria-current="step"] .step-marker,
+.path-step.is-active .step-marker {
+  box-shadow:
+    0 0 0 5px #ffcf5b66,
+    0 3px 0 var(--ink);
+}
+.installation {
+  display: grid;
+  grid-template-columns: 1fr 1.05fr;
+  align-items: center;
+  gap: 35px;
+  position: relative;
+  background: var(--cream);
+  border: var(--outline);
+  border-radius: 22px;
+  padding: 33px 37px;
+  box-shadow: 0 6px 0 #cbd5bd;
+  scroll-margin-top: 28px;
+}
+.installation:before,
+.installation:after {
+  content: "✦";
+  position: absolute;
+  color: #a87017;
+  font-size: 21px;
+  top: 15px;
+  left: 20px;
+}
+.installation:after {
+  inset: auto 20px 13px auto;
+}
+.install-intro {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  min-width: 0;
+}
+.install-book {
+  width: 34%;
+  max-width: 185px;
+  flex-shrink: 0;
+  transform: rotate(-9deg);
+}
+.install-label {
+  font-size: 12px;
+  color: #6c5128;
+}
+.install-intro h2 {
+  font-family: var(--display);
+  font-size: 36px;
+  font-weight: 550;
+  line-height: 1.07;
+  margin: 9px 0 15px;
+  letter-spacing: -0.6px;
+}
+.install-intro p {
+  font-size: 14px;
+  color: #584f3a;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+.requirement {
+  font-size: 11px;
+  color: #6c5128;
+}
+.install-box {
+  background: var(--paper);
+  border: 1.5px solid #a38f68;
+  border-radius: 13px;
+  padding: 18px;
+  min-width: 0;
+}
+.install-box-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 9px;
+}
+.install-box-heading label {
+  font-family: var(--display);
+  font-size: 18px;
+  font-weight: 500;
+}
+.install-box-heading label span {
+  margin-right: 7px;
+  color: var(--blue);
+}
+.local-badge {
+  font-size: 10px;
+  color: #216348;
+  background: #e1efdf;
+  border: 1px solid #a6c4a4;
+  border-radius: 5px;
+  padding: 2px 6px;
+  white-space: nowrap;
+}
+textarea {
+  display: block;
+  resize: vertical;
+  width: 100%;
+  min-height: 105px;
+  border: 1px solid #d4d6c9;
+  border-radius: 7px;
+  padding: 11px;
+  color: var(--ink);
+  background: #f3f4e9;
+  font-family: Consolas, "Liberation Mono", monospace;
+  font-size: 11px;
+  line-height: 1.65;
+  overflow-wrap: anywhere;
+}
+textarea::selection {
+  background: #b5d8ff;
+}
+.copy-button {
+  width: 100%;
+  min-height: 42px;
+  margin-top: 12px;
+  padding: 9px 12px;
+  font-size: 16px;
+  border-radius: 8px;
+}
+.copy-button svg {
+  width: 17px;
+  height: 17px;
+}
+.copy-status {
+  font-size: 10px;
+  color: var(--muted);
+  margin: 12px 0 0;
+  min-height: 30px;
+  text-align: center;
+  line-height: 1.5;
+}
+.terminal-install {
+  border-top: 1px dashed #c5c9b6;
+  padding-top: 10px;
+  margin-top: 7px;
+  font-size: 12px;
+}
+.terminal-install summary {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+  font-weight: 650;
+  padding: 3px 0;
+}
+.terminal-install summary::-webkit-details-marker {
+  display: none;
+}
+.terminal-install summary span {
+  font-size: 19px;
+  line-height: 1;
+}
+.terminal-install[open] summary span {
+  transform: rotate(45deg);
+}
+.terminal-content {
+  padding-top: 11px;
+}
+.terminal-content label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--muted);
+}
+.terminal-content textarea {
+  min-height: 85px;
+}
+.terminal-content a {
+  font-size: 11px;
+  margin-left: 10px;
+}
+.text-button {
+  padding: 10px 0;
+  background: none;
+  color: var(--blue-dark);
+  font-size: 12px;
+  font-weight: 700;
+  border: 0;
+}
+.text-button:hover {
+  text-decoration: underline;
+}
+.site-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
+  padding-block: 34px 30px;
+}
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.footer-brand > a {
+  display: flex;
+}
+.footer-brand img {
+  width: 66px;
+  height: 24px;
+  object-fit: contain;
+}
+.footer-brand span {
+  font-size: 10px;
+  color: var(--muted);
+  line-height: 1.5;
+  border-left: 1px solid var(--line);
+  padding-left: 17px;
+}
+.site-footer nav {
+  display: flex;
+  gap: 22px;
+}
+.site-footer nav a {
+  font-size: 11px;
+  color: var(--muted);
+  text-decoration: none;
+}
+.site-footer nav a:hover {
+  text-decoration: underline;
+}
+.footer-signoff {
+  font-family: var(--display);
+  font-size: 14px;
+}
+.footer-signoff span {
+  color: var(--red);
+  margin-left: 4px;
+}
+@keyframes duel-pulse {
+  from {
+    transform: translate(-50%, -50%) rotate(-9deg) scale(1);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(4deg) scale(1.2);
+  }
+}
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@media (min-width: 1600px) {
+  .hero {
+    padding-top: 60px;
+    padding-bottom: 42px;
+  }
+  .site-header {
+    min-height: 128px;
+  }
+}
+@media (max-width: 1150px) {
+  .wrap {
+    width: calc(100% - 48px);
+  }
+  .hero {
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 30px;
+  }
+  h1 {
+    font-size: 52px;
+  }
+  .intro {
+    font-size: 11px;
+  }
+  .hero-description {
+    font-size: 16px;
+  }
+  .mission {
+    font-size: 10px;
+    padding: 8px 5px;
+    gap: 4px;
+  }
+  .mission svg {
+    width: 15px;
+    height: 15px;
+  }
+  .arena-heading {
+    padding-inline: 16px;
+  }
+  .mission-picker {
+    padding-inline: 13px;
+  }
+  .arena-controls {
+    padding-inline: 14px;
+  }
+  .phase-message h3 {
+    font-size: 17px;
+  }
+  .phase-message p {
+    font-size: 11px;
+  }
+  .duel-actions .button {
+    font-size: 14px;
+    padding-inline: 11px;
+  }
+  .path-step {
+    gap: 10px;
+  }
+  .path-step h2 {
+    font-size: 19px;
+  }
+  .path-dots {
+    font-size: 18px;
+    letter-spacing: 2px;
+  }
+  .path-step p {
+    font-size: 11px;
+  }
+  .step-marker {
+    width: 46px;
+    height: 46px;
+  }
+  .installation {
+    padding: 27px;
+    gap: 25px;
+  }
+  .install-intro h2 {
+    font-size: 30px;
+  }
+  .install-book {
+    width: 29%;
+  }
+  .footer-signoff {
+    display: none;
+  }
+}
+@media (max-width: 850px) {
+  .site-header {
+    min-height: 95px;
+  }
+  .brand {
+    width: 145px;
+  }
+  .site-header nav {
+    gap: 18px;
+  }
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 35px;
+    padding-top: 22px;
+    max-width: 650px;
+  }
+  .hero-copy {
+    text-align: center;
+    padding: 0;
+  }
+  .intro {
+    justify-content: center;
+    font-size: 12px;
+    margin-bottom: 16px;
+  }
+  h1 {
+    font-size: 57px;
+    line-height: 1.03;
+    margin-bottom: 23px;
+  }
+  h1 br:first-child {
+    display: none;
+  }
+  h1 br:nth-child(2) {
+    display: none;
+  }
+  .hero-description {
+    max-width: 400px;
+    margin-inline: auto;
+    margin-bottom: 23px;
+    font-size: 17px;
+  }
+  .hero-actions {
+    align-items: center;
+    gap: 13px;
+  }
+  .made-by {
+    justify-content: center;
+    margin-top: 20px;
+  }
+  .arena-shell {
+    transform: rotate(0.6deg);
+  }
+  .arena-heading h2 {
+    font-size: 22px;
+  }
+  .mission {
+    font-size: 12px;
+    padding: 10px 8px;
+    gap: 7px;
+  }
+  .arena-controls {
+    padding: 18px;
+  }
+  .phase-message h3 {
+    font-size: 20px;
+  }
+  .phase-message p {
+    font-size: 12px;
+  }
+  .duel-actions .button {
+    font-size: 16px;
+    padding: 11px 16px;
+  }
+  .quest-path {
+    max-width: 650px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 15px;
+    padding-block: 27px 36px;
+  }
+  .path-step {
+    gap: 16px;
+  }
+  .step-marker {
+    width: 48px;
+    height: 48px;
+  }
+  .path-step h2 {
+    font-size: 22px;
+  }
+  .path-step p {
+    font-size: 12px;
+  }
+  .path-dots {
+    display: none;
+  }
+  .path-step:not(:last-child):after {
+    content: "";
+    position: absolute;
+    left: 24px;
+    bottom: -16px;
+    height: 15px;
+    border-left: 2px dashed #8ba9a3;
+  }
+  .path-step {
+    position: relative;
+  }
+  .installation {
+    max-width: 650px;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 28px;
+  }
+  .install-intro {
+    justify-content: center;
+    gap: 20px;
+  }
+  .install-intro h2 {
+    font-size: 34px;
+  }
+  .install-intro p {
+    font-size: 14px;
+  }
+  .install-book {
+    width: 30%;
+    max-width: 145px;
+  }
+  .install-box {
+    padding: 20px;
+  }
+  .install-box textarea {
+    font-size: 12px;
+  }
+  .copy-status {
+    min-height: 15px;
+    font-size: 11px;
+  }
+  .site-footer {
+    flex-wrap: wrap;
+    max-width: 650px;
+    justify-content: center;
+    gap: 24px;
+    padding-top: 30px;
+    padding-bottom: 35px;
+  }
+  .site-footer nav {
+    gap: 28px;
+  }
+}
+@media (max-width: 480px) {
+  .wrap {
+    width: calc(100% - 32px);
+  }
+  .site-header {
+    gap: 10px;
+    min-height: 88px;
+  }
+  .brand {
+    width: 124px;
+  }
+  .site-header nav {
+    gap: 13px;
+  }
+  .nav-link {
+    font-size: 12px;
+  }
+  .github-link {
+    display: none;
+  }
+  .button-small {
+    font-size: 13px;
+    padding: 9px 12px;
+    min-height: 39px;
+    border-radius: 9px;
+  }
+  .hero {
+    gap: 28px;
+    padding-top: 22px;
+  }
+  .intro {
+    font-size: 10px;
+    gap: 6px;
+    margin-bottom: 17px;
+  }
+  .spark {
+    font-size: 20px;
+  }
+  h1 {
+    font-size: 46px;
+    letter-spacing: -1.25px;
+    max-width: 350px;
+    margin-inline: auto;
+  }
+  h1 br:nth-child(2) {
+    display: block;
+  }
+  .hero-description {
+    font-size: 15px;
+    max-width: 305px;
+    line-height: 1.6;
+  }
+  .hero-actions .button {
+    font-size: 18px;
+    min-height: 49px;
+  }
+  .free-note {
+    font-size: 11px;
+  }
+  .made-by {
+    margin-top: 18px;
+    font-size: 10px;
+  }
+  .made-by img {
+    width: 59px;
+  }
+  .arena-shell {
+    border-radius: 18px;
+    transform: none;
+  }
+  .arena-heading {
+    padding: 17px 12px 12px;
+  }
+  .arena-heading h2 {
+    font-size: 20px;
+  }
+  .demo-label {
+    font-size: 8px;
+    letter-spacing: 0.8px;
+  }
+  .mission-picker {
+    gap: 5px;
+    padding: 0 9px 13px;
+  }
+  .mission {
+    font-size: 9px;
+    gap: 4px;
+    padding: 9px 5px;
+    border-radius: 7px;
+  }
+  .mission svg {
+    width: 14px;
+    height: 14px;
+  }
+  .arena-world {
+    aspect-ratio: 1.35;
+  }
+  .arena-scene {
+    object-fit: cover;
+  }
+  .quest-tag {
+    top: 10px;
+    left: 10px;
+    font-size: 9px;
+    padding: 4px 7px;
+  }
+  .versus {
+    font-size: 36px;
+  }
+  .team-tag {
+    font-size: 13px;
+    padding: 2px 8px;
+    bottom: 29px;
+  }
+  .team-blue {
+    left: 9%;
+  }
+  .team-red {
+    right: 9%;
+  }
+  .world-footer {
+    font-size: 7px;
+    letter-spacing: 1.5px;
+    gap: 12px;
+    padding: 6px;
+  }
+  .world-footer span + span:before {
+    padding-right: 12px;
+  }
+  .arena-controls {
+    padding: 15px 12px 11px;
+    gap: 9px;
+    min-height: 94px;
+  }
+  .phase-message h3 {
+    font-size: 17px;
+    max-width: 165px;
+  }
+  .phase-message p {
+    font-size: 10px;
+    max-width: 160px;
+  }
+  .duel-actions .button {
+    font-size: 13px;
+    min-height: 42px;
+    padding: 9px 11px;
+    gap: 7px;
+    border-radius: 9px;
+  }
+  .demo-note {
+    font-size: 9px;
+    padding-bottom: 12px;
+  }
+  .reward-ribbon {
+    font-size: 19px;
+    padding: 5px 15px;
+  }
+  .quest-path {
+    padding-left: 16px;
+    gap: 19px;
+    padding-block: 26px 34px;
+  }
+  .path-step h2 {
+    font-size: 21px;
+  }
+  .path-step p {
+    font-size: 11px;
+  }
+  .step-marker {
+    width: 44px;
+    height: 44px;
+    border-radius: 13px;
+  }
+  .step-marker svg {
+    width: 24px;
+    height: 24px;
+  }
+  .installation {
+    padding: 26px 14px 17px;
+    border-radius: 18px;
+    gap: 21px;
+  }
+  .installation:before,
+  .installation:after {
+    font-size: 16px;
+    top: 10px;
+    left: 13px;
+  }
+  .installation:after {
+    inset: auto 12px 5px auto;
+  }
+  .install-intro {
+    gap: 9px;
+  }
+  .install-book {
+    width: 30%;
+  }
+  .install-label {
+    font-size: 10px;
+  }
+  .install-intro h2 {
+    font-size: 29px;
+    letter-spacing: -0.7px;
+    margin-bottom: 12px;
+  }
+  .install-intro p {
+    font-size: 12px;
+    margin-bottom: 9px;
+  }
+  .requirement {
+    font-size: 10px;
+  }
+  .install-box {
+    padding: 13px;
+    border-radius: 10px;
+  }
+  .install-box-heading label {
+    font-size: 16px;
+  }
+  .local-badge {
+    font-size: 9px;
+  }
+  .install-box textarea {
+    font-size: 10px;
+    min-height: 113px;
+    padding: 9px;
+  }
+  .copy-button {
+    font-size: 15px;
+    gap: 8px;
+  }
+  .copy-status {
+    font-size: 9px;
+    min-height: 27px;
+  }
+  .terminal-install {
+    font-size: 11px;
+  }
+  .terminal-content a {
+    font-size: 10px;
+  }
+  .site-footer {
+    gap: 23px;
+    padding-bottom: 27px;
+  }
+  .site-footer nav {
+    gap: 25px;
+    font-size: 11px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *:before,
+  *:after {
+    animation: none !important;
+    transition: none !important;
+  }
+  .button:hover:not(:disabled),
+  .brand:hover,
+  .mission:hover:not(:disabled) {
+    transform: none;
+  }
+}
+@media (max-width: 480px) {
+  h1 {
+    font-size: clamp(34px, 10.2vw, 46px);
+  }
+  .install-box textarea {
+    min-height: 145px;
+  }
+  .mission {
+    min-height: 40px;
+  }
+}
+.made-by a {
+  align-items: center;
+  gap: 3px;
+  text-decoration: none;
+}
+.made-by img {
+  width: 26px;
+}
+.made-by strong {
+  font-size: 13px;
+  color: var(--ink);
+}
+::selection {
+  background: #b5d8ff;
+  color: var(--ink);
+}
+html {
+  scrollbar-color: #9ebbbb var(--sky);
+  scrollbar-width: thin;
+}
+/* Preserve readable controls even on the smallest arena screens. */
+h1 {
+  letter-spacing: -0.025em;
+}
+.made-by,
+.demo-label,
+.quest-tag,
+.demo-note,
+.requirement,
+.local-badge,
+.copy-status,
+.footer-brand span,
+.terminal-content a {
+  font-size: 11px;
+}
+.mission {
+  font-size: 12px;
+  min-height: 44px;
+}
+.phase-message p {
+  font-size: 12px;
+}
+@media (max-width: 480px) {
+  .mission {
+    font-size: 11px;
+    white-space: normal;
+    line-height: 1.2;
+    min-width: 0;
+    gap: 4px;
+  }
+  .arena-heading h2 {
+    font-size: 18px;
+  }
+  .demo-label {
+    font-size: 10px;
+    letter-spacing: 0.4px;
+  }
+  .arena-controls {
+    align-items: flex-start;
+  }
+  .phase-message p {
+    font-size: 11px;
+  }
+  .copy-status {
+    min-height: 34px;
+  }
+}

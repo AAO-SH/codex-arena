@@ -1,0 +1,10 @@
+node_modules/
+.scratch/
+.impeccable/
+__pycache__/
+.DS_Store
+Thumbs.db
+*.log
+.env
+.env.*
+!.env.example

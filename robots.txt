@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://arena.aao.sh/sitemap.xml
