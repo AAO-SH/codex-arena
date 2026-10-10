@@ -1,0 +1,34 @@
+# Project-local installation, dependencies, knowledge and execution state
+/.agents/
+/.codex/
+/.venv/
+/.docs/
+/.scratch/
+/.memory/
+/.playbooks/
+
+# Python caches and build output
+__pycache__/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.py[cod]
+/.coverage
+/htmlcov/
+/build/
+/dist/
+*.egg-info/
+
+# Local credentials and machine settings
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+.DS_Store
+Thumbs.db
+
+# Internal implementation notes are not part of the public distribution
+/references/development-contract.md

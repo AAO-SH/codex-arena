@@ -1,0 +1,17 @@
+{
+  "profile": "original",
+  "original": {
+    "min": {
+      "model": "gpt-5.6-luna",
+      "effort": "low",
+      "throughput": null,
+      "price_per_1m": null
+    },
+    "max": {
+      "model": "gpt-6-astra",
+      "effort": "ultra",
+      "throughput": null,
+      "price_per_1m": null
+    }
+  }
+}

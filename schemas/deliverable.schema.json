@@ -1,0 +1,47 @@
+{
+  "type": "object",
+  "properties": {
+    "completed": {
+      "type": "boolean"
+    },
+    "answer": {
+      "type": "string"
+    },
+    "files": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "content": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "path",
+          "content"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "lessons": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "completed",
+    "answer",
+    "files",
+    "lessons"
+  ],
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:codex-arena:deliverable:1",
+  "title": "Codex Arena deliverable v1"
+}

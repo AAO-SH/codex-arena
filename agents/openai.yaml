@@ -1,0 +1,7 @@
+interface:
+  display_name: "Codex Arena"
+  short_description: "Torneios de agentes para criar playbooks verificáveis"
+  brand_color: "#B8860B"
+  default_prompt: "Use $codex-arena para comparar estratégias desta família de tarefas e criar um playbook com automações e validação contra baseline."
+policy:
+  allow_implicit_invocation: true

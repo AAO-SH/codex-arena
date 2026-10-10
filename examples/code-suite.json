@@ -1,0 +1,176 @@
+{
+  "schema_version": 1,
+  "family": "PUBLIC-EXAMPLE-json-normalization",
+  "cases": [
+    {
+      "id": "code-01",
+      "split": "train",
+      "prompt": "Crie solution.py com normalize(record: dict) -> dict sem mutar a entrada. Preserve chaves desconhecidas. Remova espaços das pontas de name e email quando strings; aplique casefold no email. Converta age de texto numérico não negativo para inteiro; preserve null e campos ausentes. Entregue código Python e explique seus limites. Exemplo de entrada desta tarefa: {\"name\": \" Ana \", \"email\": \" A@EXAMPLE.COM \", \"age\": \"31\"}",
+      "completion": {
+        "required_files": [
+          "solution.py"
+        ],
+        "checks": [
+          [
+            "{python}",
+            "-c",
+            "import copy,json; from solution import normalize; x=json.loads(\"{\\\"name\\\": \\\" Ana \\\", \\\"email\\\": \\\" A@EXAMPLE.COM \\\", \\\"age\\\": \\\"31\\\"}\"); expected=json.loads(\"{\\\"name\\\": \\\"Ana\\\", \\\"email\\\": \\\"a@example.com\\\", \\\"age\\\": 31}\"); original=copy.deepcopy(x); assert normalize(x)==expected; assert x==original"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "code-02",
+      "split": "train",
+      "prompt": "Crie solution.py com normalize(record: dict) -> dict sem mutar a entrada. Preserve chaves desconhecidas. Remova espaços das pontas de name e email quando strings; aplique casefold no email. Converta age de texto numérico não negativo para inteiro; preserve null e campos ausentes. Entregue código Python e explique seus limites. Exemplo de entrada desta tarefa: {\"name\": \"李 明\", \"email\": \"M@EXAMPLE.COM\", \"age\": 0}",
+      "completion": {
+        "required_files": [
+          "solution.py"
+        ],
+        "checks": [
+          [
+            "{python}",
+            "-c",
+            "import copy,json; from solution import normalize; x=json.loads(\"{\\\"name\\\": \\\"李 明\\\", \\\"email\\\": \\\"M@EXAMPLE.COM\\\", \\\"age\\\": 0}\"); expected=json.loads(\"{\\\"name\\\": \\\"李 明\\\", \\\"email\\\": \\\"m@example.com\\\", \\\"age\\\": 0}\"); original=copy.deepcopy(x); assert normalize(x)==expected; assert x==original"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "code-03",
+      "split": "train",
+      "prompt": "Crie solution.py com normalize(record: dict) -> dict sem mutar a entrada. Preserve chaves desconhecidas. Remova espaços das pontas de name e email quando strings; aplique casefold no email. Converta age de texto numérico não negativo para inteiro; preserve null e campos ausentes. Entregue código Python e explique seus limites. Exemplo de entrada desta tarefa: {\"name\": \" Bia \", \"age\": \"22\", \"extra\": {\"a\": 1}}",
+      "completion": {
+        "required_files": [
+          "solution.py"
+        ],
+        "checks": [
+          [
+            "{python}",
+            "-c",
+            "import copy,json; from solution import normalize; x=json.loads(\"{\\\"name\\\": \\\" Bia \\\", \\\"age\\\": \\\"22\\\", \\\"extra\\\": {\\\"a\\\": 1}}\"); expected=json.loads(\"{\\\"name\\\": \\\"Bia\\\", \\\"age\\\": 22, \\\"extra\\\": {\\\"a\\\": 1}}\"); original=copy.deepcopy(x); assert normalize(x)==expected; assert x==original"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "code-04",
+      "split": "train",
+      "prompt": "Crie solution.py com normalize(record: dict) -> dict sem mutar a entrada. Preserve chaves desconhecidas. Remova espaços das pontas de name e email quando strings; aplique casefold no email. Converta age de texto numérico não negativo para inteiro; preserve null e campos ausentes. Entregue código Python e explique seus limites. Exemplo de entrada desta tarefa: {\"name\": \"\", \"email\": \" X@Y.BR \", \"age\": 99}",
+      "completion": {
+        "required_files": [
+          "solution.py"
+        ],
+        "checks": [
+          [
+            "{python}",
+            "-c",
+            "import copy,json; from solution import normalize; x=json.loads(\"{\\\"name\\\": \\\"\\\", \\\"email\\\": \\\" X@Y.BR \\\", \\\"age\\\": 99}\"); expected=json.loads(\"{\\\"name\\\": \\\"\\\", \\\"email\\\": \\\"x@y.br\\\", \\\"age\\\": 99}\"); original=copy.deepcopy(x); assert normalize(x)==expected; assert x==original"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "code-05",
+      "split": "train",
+      "prompt": "Crie solution.py com normalize(record: dict) -> dict sem mutar a entrada. Preserve chaves desconhecidas. Remova espaços das pontas de name e email quando strings; aplique casefold no email. Converta age de texto numérico não negativo para inteiro; preserve null e campos ausentes. Entregue código Python e explique seus limites. Exemplo de entrada desta tarefa: {\"name\": \"João\", \"email\": null, \"age\": null}",
+      "completion": {
+        "required_files": [
+          "solution.py"
+        ],
+        "checks": [
+          [
+            "{python}",
+            "-c",
+            "import copy,json; from solution import normalize; x=json.loads(\"{\\\"name\\\": \\\"João\\\", \\\"email\\\": null, \\\"age\\\": null}\"); expected=json.loads(\"{\\\"name\\\": \\\"João\\\", \\\"email\\\": null, \\\"age\\\": null}\"); original=copy.deepcopy(x); assert normalize(x)==expected; assert x==original"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "code-06",
+      "split": "holdout",
+      "prompt": "Crie solution.py com normalize(record: dict) -> dict sem mutar a entrada. Preserve chaves desconhecidas. Remova espaços das pontas de name e email quando strings; aplique casefold no email. Converta age de texto numérico não negativo para inteiro; preserve null e campos ausentes. Entregue código Python e explique seus limites. Exemplo de entrada desta tarefa: {\"name\": \"  Érica  \", \"email\": \"e@EXAMPLE.COM\", \"age\": \"42\"}",
+      "completion": {
+        "required_files": [
+          "solution.py"
+        ],
+        "checks": [
+          [
+            "{python}",
+            "-c",
+            "import copy,json; from solution import normalize; x=json.loads(\"{\\\"name\\\": \\\"  Érica  \\\", \\\"email\\\": \\\"e@EXAMPLE.COM\\\", \\\"age\\\": \\\"42\\\"}\"); expected=json.loads(\"{\\\"name\\\": \\\"Érica\\\", \\\"email\\\": \\\"e@example.com\\\", \\\"age\\\": 42}\"); original=copy.deepcopy(x); assert normalize(x)==expected; assert x==original"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "code-07",
+      "split": "holdout",
+      "prompt": "Crie solution.py com normalize(record: dict) -> dict sem mutar a entrada. Preserve chaves desconhecidas. Remova espaços das pontas de name e email quando strings; aplique casefold no email. Converta age de texto numérico não negativo para inteiro; preserve null e campos ausentes. Entregue código Python e explique seus limites. Exemplo de entrada desta tarefa: {\"email\": \"  Z@TEST.BR  \", \"age\": \"18\"}",
+      "completion": {
+        "required_files": [
+          "solution.py"
+        ],
+        "checks": [
+          [
+            "{python}",
+            "-c",
+            "import copy,json; from solution import normalize; x=json.loads(\"{\\\"email\\\": \\\"  Z@TEST.BR  \\\", \\\"age\\\": \\\"18\\\"}\"); expected=json.loads(\"{\\\"email\\\": \\\"z@test.br\\\", \\\"age\\\": 18}\"); original=copy.deepcopy(x); assert normalize(x)==expected; assert x==original"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "code-08",
+      "split": "holdout",
+      "prompt": "Crie solution.py com normalize(record: dict) -> dict sem mutar a entrada. Preserve chaves desconhecidas. Remova espaços das pontas de name e email quando strings; aplique casefold no email. Converta age de texto numérico não negativo para inteiro; preserve null e campos ausentes. Entregue código Python e explique seus limites. Exemplo de entrada desta tarefa: {\"name\": null, \"email\": null, \"note\": \"preserve\"}",
+      "completion": {
+        "required_files": [
+          "solution.py"
+        ],
+        "checks": [
+          [
+            "{python}",
+            "-c",
+            "import copy,json; from solution import normalize; x=json.loads(\"{\\\"name\\\": null, \\\"email\\\": null, \\\"note\\\": \\\"preserve\\\"}\"); expected=json.loads(\"{\\\"name\\\": null, \\\"email\\\": null, \\\"note\\\": \\\"preserve\\\"}\"); original=copy.deepcopy(x); assert normalize(x)==expected; assert x==original"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "code-09",
+      "split": "holdout",
+      "prompt": "Crie solution.py com normalize(record: dict) -> dict sem mutar a entrada. Preserve chaves desconhecidas. Remova espaços das pontas de name e email quando strings; aplique casefold no email. Converta age de texto numérico não negativo para inteiro; preserve null e campos ausentes. Entregue código Python e explique seus limites. Exemplo de entrada desta tarefa: {\"name\": \"  Alice Smith  \", \"email\": \"A@HOST.TLD\", \"age\": 1, \"score\": 0}",
+      "completion": {
+        "required_files": [
+          "solution.py"
+        ],
+        "checks": [
+          [
+            "{python}",
+            "-c",
+            "import copy,json; from solution import normalize; x=json.loads(\"{\\\"name\\\": \\\"  Alice Smith  \\\", \\\"email\\\": \\\"A@HOST.TLD\\\", \\\"age\\\": 1, \\\"score\\\": 0}\"); expected=json.loads(\"{\\\"name\\\": \\\"Alice Smith\\\", \\\"email\\\": \\\"a@host.tld\\\", \\\"age\\\": 1, \\\"score\\\": 0}\"); original=copy.deepcopy(x); assert normalize(x)==expected; assert x==original"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "code-10",
+      "split": "holdout",
+      "prompt": "Crie solution.py com normalize(record: dict) -> dict sem mutar a entrada. Preserve chaves desconhecidas. Remova espaços das pontas de name e email quando strings; aplique casefold no email. Converta age de texto numérico não negativo para inteiro; preserve null e campos ausentes. Entregue código Python e explique seus limites. Exemplo de entrada desta tarefa: {\"name\": \"Omar\", \"email\": \"  o@host.tld\", \"age\": \"120\", \"tags\": [\"x\"]}",
+      "completion": {
+        "required_files": [
+          "solution.py"
+        ],
+        "checks": [
+          [
+            "{python}",
+            "-c",
+            "import copy,json; from solution import normalize; x=json.loads(\"{\\\"name\\\": \\\"Omar\\\", \\\"email\\\": \\\"  o@host.tld\\\", \\\"age\\\": \\\"120\\\", \\\"tags\\\": [\\\"x\\\"]}\"); expected=json.loads(\"{\\\"name\\\": \\\"Omar\\\", \\\"email\\\": \\\"o@host.tld\\\", \\\"age\\\": 120, \\\"tags\\\": [\\\"x\\\"]}\"); original=copy.deepcopy(x); assert normalize(x)==expected; assert x==original"
+          ]
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "type": "object",
+  "properties": {
+    "input_tokens": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0
+    },
+    "cached_input_tokens": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0
+    },
+    "output_tokens": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0
+    },
+    "reasoning_output_tokens": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0
+    },
+    "elapsed_ms": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0
+    },
+    "cost_usd": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0
+    },
+    "complete": {
+      "type": "boolean"
+    },
+    "usage_verified": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "complete",
+    "elapsed_ms",
+    "cost_usd"
+  ],
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:codex-arena:metrics:1",
+  "title": "Codex Arena metrics v1"
+}

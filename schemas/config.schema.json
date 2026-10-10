@@ -1,0 +1,411 @@
+{
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "seed": {
+      "type": "integer"
+    },
+    "tournament": {
+      "type": "object",
+      "properties": {
+        "entrants": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "cut": {
+          "type": "integer"
+        },
+        "tiers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "swiss_rounds": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "swiss_strikes": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "qualifiers": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "series_games": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "extra_games": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "entrants",
+        "cut",
+        "tiers",
+        "swiss_rounds",
+        "swiss_strikes",
+        "qualifiers",
+        "series_games",
+        "extra_games"
+      ],
+      "additionalProperties": false
+    },
+    "scoring": {
+      "type": "object",
+      "properties": {
+        "profile": {
+          "enum": [
+            "efficiency",
+            "original"
+          ]
+        },
+        "win": {
+          "type": "number"
+        },
+        "loss": {
+          "type": "number"
+        },
+        "failure": {
+          "type": "number"
+        },
+        "tie": {
+          "type": "number"
+        },
+        "bye": {
+          "type": "number"
+        },
+        "speed_weight": {
+          "type": "number"
+        },
+        "expense_weight": {
+          "type": "number"
+        },
+        "original": {
+          "type": [
+            "object",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "profile",
+        "win",
+        "loss",
+        "failure",
+        "tie",
+        "bye",
+        "speed_weight",
+        "expense_weight",
+        "original"
+      ],
+      "additionalProperties": false
+    },
+    "execution": {
+      "type": "object",
+      "properties": {
+        "concurrency": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "job_timeout_ms": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "reservation_tokens": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "infrastructure_retries": {
+          "type": "integer"
+        },
+        "max_escalations": {
+          "type": "integer"
+        },
+        "max_output_chars": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "retry_backoff_ms": {
+          "type": "integer"
+        },
+        "sandbox": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "concurrency",
+        "job_timeout_ms",
+        "reservation_tokens",
+        "infrastructure_retries",
+        "max_escalations",
+        "max_output_chars",
+        "retry_backoff_ms",
+        "sandbox"
+      ],
+      "additionalProperties": false
+    },
+    "models": {
+      "type": "object",
+      "properties": {
+        "policy": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "model": {
+                "type": "string"
+              },
+              "effort": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "model",
+              "effort"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "judge": {
+          "type": "object",
+          "properties": {
+            "model": {
+              "type": "string"
+            },
+            "effort": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "model",
+            "effort"
+          ],
+          "additionalProperties": false
+        },
+        "arbiter": {
+          "type": "object",
+          "properties": {
+            "model": {
+              "type": "string"
+            },
+            "effort": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "model",
+            "effort"
+          ],
+          "additionalProperties": false
+        },
+        "verified_usage_models": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "judge_review_margin": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "policy",
+        "judge",
+        "arbiter",
+        "verified_usage_models",
+        "judge_review_margin"
+      ],
+      "additionalProperties": false
+    },
+    "rubric": {
+      "type": "object",
+      "properties": {
+        "correctness": {
+          "type": "integer"
+        },
+        "completeness": {
+          "type": "integer"
+        },
+        "robustness": {
+          "type": "integer"
+        },
+        "specificity": {
+          "type": "integer"
+        },
+        "clarity": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "correctness",
+        "completeness",
+        "robustness",
+        "specificity",
+        "clarity"
+      ],
+      "additionalProperties": false
+    },
+    "validation": {
+      "type": "object",
+      "properties": {
+        "min_train": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "min_holdout": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "repetitions": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "quality_gain": {
+          "type": "integer"
+        },
+        "resource_gain": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "min_train",
+        "min_holdout",
+        "repetitions",
+        "quality_gain",
+        "resource_gain"
+      ],
+      "additionalProperties": false
+    },
+    "memory": {
+      "type": "object",
+      "properties": {
+        "model_id": {
+          "type": "string"
+        },
+        "model_revision": {
+          "type": "string"
+        },
+        "topk": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "context_token_budget": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "model_id",
+        "model_revision",
+        "topk",
+        "context_token_budget"
+      ],
+      "additionalProperties": false
+    },
+    "plugins": {
+      "type": "object",
+      "properties": {
+        "require_semantic_review": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "require_semantic_review"
+      ],
+      "additionalProperties": false
+    },
+    "prices": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "input": {
+            "type": "number",
+            "minimum": 0
+          },
+          "cached_input": {
+            "type": "number",
+            "minimum": 0
+          },
+          "output": {
+            "type": "number",
+            "minimum": 0
+          }
+        },
+        "required": [
+          "input",
+          "cached_input",
+          "output"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "price_provenance": {
+      "type": "object",
+      "properties": {
+        "as_of": {
+          "type": "string"
+        },
+        "source": {
+          "type": "string"
+        },
+        "currency": {
+          "type": "string"
+        },
+        "units": {
+          "type": "string"
+        },
+        "basis": {
+          "type": "string"
+        },
+        "service_tier": {
+          "type": "string"
+        },
+        "long_context_threshold": {
+          "type": "integer"
+        },
+        "long_context_input_multiplier": {
+          "type": "integer"
+        },
+        "long_context_output_multiplier": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "as_of",
+        "source",
+        "currency",
+        "units",
+        "basis",
+        "service_tier",
+        "long_context_threshold",
+        "long_context_input_multiplier",
+        "long_context_output_multiplier"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "schema_version",
+    "seed",
+    "tournament",
+    "scoring",
+    "execution",
+    "models",
+    "rubric",
+    "validation",
+    "memory",
+    "plugins",
+    "prices",
+    "price_provenance"
+  ],
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Codex Arena config v1",
+  "$id": "urn:codex-arena:config:1"
+}

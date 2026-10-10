@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "seed": 7,
+  "tournament": {"entrants": 100, "cut": 20, "tiers": ["iron", "copper", "silver", "gold"], "swiss_rounds": 5, "swiss_strikes": 4, "qualifiers": 8, "series_games": 10, "extra_games": 5},
+  "scoring": {"profile": "efficiency", "win": 3, "loss": -3, "failure": -5, "tie": 0, "bye": 3, "speed_weight": 1, "expense_weight": 1, "original": null},
+  "execution": {"concurrency": 4, "job_timeout_ms": 900000, "reservation_tokens": 16000, "infrastructure_retries": 2, "max_escalations": 2, "max_output_chars": 120000, "retry_backoff_ms": 1000, "sandbox": "workspace-write"},
+  "models": {
+    "policy": [{"model": "gpt-6-luna", "effort": "medium"}, {"model": "gpt-6.1-sol", "effort": "high"}, {"model": "gpt-6-astra", "effort": "xhigh"}],
+    "judge": {"model": "gpt-6.1-sol", "effort": "high"},
+    "arbiter": {"model": "gpt-6-astra", "effort": "high"},
+    "verified_usage_models": [],
+    "judge_review_margin": 5
+  },
+  "rubric": {"correctness": 30, "completeness": 25, "robustness": 20, "specificity": 15, "clarity": 10},
+  "validation": {"min_train": 5, "min_holdout": 5, "repetitions": 3, "quality_gain": 5, "resource_gain": 0.1},
+  "memory": {"model_id": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2", "model_revision": "bundled-fastembed-0.9.0", "topk": 8, "context_token_budget": 3000},
+  "plugins": {"require_semantic_review": true},
+  "prices": {
+    "gpt-6-luna": {"input": 0.1, "cached_input": 0.01, "output": 0.5},
+    "gpt-6.1-sol": {"input": 2, "cached_input": 0.1, "output": 10},
+    "gpt-6-astra": {"input": 10, "cached_input": 1, "output": 50},
+    "gpt-5.6-luna": {"input": 0.2, "cached_input": 0.02, "output": 1.2}
+  },
+  "price_provenance": {"as_of": "2026-10-10", "source": "https://developers.openai.com/api/docs/models/compare", "currency": "USD", "units": "per_1m_tokens", "basis": "api_equivalent_estimate", "service_tier": "standard", "long_context_threshold": 272000, "long_context_input_multiplier": 2, "long_context_output_multiplier": 1.5}
+}

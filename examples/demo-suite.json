@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "family": "PUBLIC-DEMO-json-contracts",
+  "cases": [
+    {
+      "id": "demo-01",
+      "split": "train",
+      "prompt": "Descreva um método verificável para detectar campos ausentes em um objeto JSON de cadastro.",
+      "completion": {
+        "required_files": [],
+        "checks": []
+      }
+    },
+    {
+      "id": "demo-02",
+      "split": "train",
+      "prompt": "Planeje a normalização de datas ISO em registros JSON sem perder o valor original.",
+      "completion": {
+        "required_files": [],
+        "checks": []
+      }
+    },
+    {
+      "id": "demo-03",
+      "split": "train",
+      "prompt": "Explique como identificar chaves duplicadas antes de consumir um documento JSON.",
+      "completion": {
+        "required_files": [],
+        "checks": []
+      }
+    },
+    {
+      "id": "demo-04",
+      "split": "train",
+      "prompt": "Defina uma validação de tipos para um catálogo JSON com preço e quantidade.",
+      "completion": {
+        "required_files": [],
+        "checks": []
+      }
+    },
+    {
+      "id": "demo-05",
+      "split": "train",
+      "prompt": "Proponha um relatório de erros por linha para uma importação JSONL.",
+      "completion": {
+        "required_files": [],
+        "checks": []
+      }
+    },
+    {
+      "id": "demo-06",
+      "split": "holdout",
+      "prompt": "Planeje validar coordenadas geográficas em JSON, com exemplos de casos limite.",
+      "completion": {
+        "required_files": [],
+        "checks": []
+      }
+    },
+    {
+      "id": "demo-07",
+      "split": "holdout",
+      "prompt": "Descreva como distinguir nulo, ausente e texto vazio em dados JSON de contatos.",
+      "completion": {
+        "required_files": [],
+        "checks": []
+      }
+    },
+    {
+      "id": "demo-08",
+      "split": "holdout",
+      "prompt": "Crie um procedimento para identificar identificadores repetidos em uma coleção JSON.",
+      "completion": {
+        "required_files": [],
+        "checks": []
+      }
+    },
+    {
+      "id": "demo-09",
+      "split": "holdout",
+      "prompt": "Defina verificações para intervalos de tempo em registros JSON de agenda.",
+      "completion": {
+        "required_files": [],
+        "checks": []
+      }
+    },
+    {
+      "id": "demo-10",
+      "split": "holdout",
+      "prompt": "Explique como validar relações entre objetos JSON com referências por identificador.",
+      "completion": {
+        "required_files": [],
+        "checks": []
+      }
+    }
+  ]
+}

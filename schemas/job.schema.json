@@ -1,0 +1,61 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "a": {
+      "type": "string",
+      "minLength": 1
+    },
+    "b": {
+      "type": "string",
+      "minLength": 1
+    },
+    "stage": {
+      "enum": [
+        "round_robin",
+        "swiss",
+        "double_elimination"
+      ]
+    },
+    "tier": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "round": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "game": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "series": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "bracket": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "id",
+    "a",
+    "b",
+    "stage",
+    "round"
+  ],
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:codex-arena:job:1",
+  "title": "Codex Arena job v1"
+}

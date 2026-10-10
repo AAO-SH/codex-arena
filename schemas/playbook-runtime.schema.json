@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Arena separately validated mutable runtime payload",
+  "type": "object", "additionalProperties": false,
+  "required": ["schema_version", "selected_tier", "model", "effort", "enabled_plugins", "candidate_hash"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "selected_tier": {"enum": ["iron", "copper", "silver", "gold"], "default": "gold"},
+    "model": {"type": ["string", "null"], "minLength": 1},
+    "effort": {"enum": [null, "none", "minimal", "low", "medium", "high", "xhigh", "max", "ultra"]},
+    "enabled_plugins": {"type": "array", "uniqueItems": true, "items": {"type": "string", "pattern": "^[a-z0-9][a-z0-9_-]{0,63}$"}},
+    "candidate_hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+  }
+}

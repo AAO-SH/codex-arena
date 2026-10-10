@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Arena plugin main.md frontmatter",
+  "type": "object",
+  "required": ["type", "name", "requires", "capabilities", "effects", "invariants", "incompatible"],
+  "properties": {
+    "type": {"const": "Playbook"},
+    "name": {"type": "string", "pattern": "^[a-z0-9][a-z0-9_-]{0,63}$"},
+    "requires": {"$ref": "#/$defs/strings"},
+    "capabilities": {"allOf": [{"$ref": "#/$defs/strings"}, {"minItems": 1}]},
+    "effects": {"allOf": [{"$ref": "#/$defs/strings"}, {"minItems": 1}]},
+    "invariants": {"allOf": [{"$ref": "#/$defs/strings"}, {"minItems": 1}]},
+    "incompatible": {"$ref": "#/$defs/strings"}
+  },
+  "$defs": {"strings": {"type": "array", "items": {"type": "string", "minLength": 1}}}
+}
