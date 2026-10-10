@@ -13,6 +13,8 @@ Codex Arena is introduced as a small, playful game world. The page gives visitor
 
 Visitors choose a demo quest, watch a three-part walkthrough comparing approaches and checking a result, then see a playbook reward. The walkthrough is illustrative: it runs no models and presents no real tournament measurements. Visitors can replay it or choose another quest.
 
+The arena separates the background from a transparent two-mascot sprite atlas. A finite 5.6-second timeline animates alternating lunges and shields, a friendly clash, recovery, and verification. The reward book pops into view with a short ray and confetti burst. A Skip control ends the sequence immediately. No sounds or perpetual loops are added. Reduced motion uses static ready/verify states and a still reward; changing that preference during a duel cancels the remaining movement.
+
 The installation card provides a prompt to copy into Codex and an expandable terminal command. It states the Python and Codex CLI requirements and links to the full repository guide. Installation does not start a tournament.
 
 ## Interaction and accessibility

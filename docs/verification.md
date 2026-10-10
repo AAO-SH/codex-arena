@@ -16,3 +16,14 @@ Checked on 2026-10-10 before the initial website release.
 The walkthrough is explicitly illustrative. It does not run a tournament or generate a validated playbook. The PNG artwork preserves the generated assets' quality; the three raster assets total approximately 4 MB, so this is not a performance benchmark or an assertion of optimal mobile payload. Font and image files are hosted locally.
 
 Independent review found a focus handoff issue and a platform-specific copy-shortcut message; both were corrected. Hidden reward art now requests lazy loading. Native screenshot stitching can display the off-screen skip link in a full-page capture; the actual viewport and its DOM bounds were verified separately.
+
+## Animated duel update — 2026-10-10
+
+- `npm test`: 21 passing tests, including timeline boundaries, cancellation, stale callbacks, skip/replay, a live motion-preference change, and focus preservation when a visitor leaves the duel controls.
+- JavaScript syntax checks and `git diff --check` passed.
+- In-app Chromium: the blue lunge and red shield were observed in motion, with nonidentity transforms and the shield visible during the block. The book reveal and finite confetti animation were confirmed through rendered styles; the persistent reward was inspected visually.
+- Skip unlocks the book immediately, clears the timeline, and focuses Replay. Replay restores Start and supports another sequence.
+- Desktop at 1440px and mobile at 390px were visually inspected. A 320px check found no horizontal page overflow, and the book and Replay button remained inside the viewport.
+- All loaded images resolved. No console errors or warnings were recorded in the updated local demo.
+- Reduced motion has deterministic timer tests and CSS guards. System-level browser emulation remains outside the checks performed in this session.
+- The update adds a transparent mascot atlas and a clean arena background. The old composite scene remains as source artwork but is not loaded by the page.

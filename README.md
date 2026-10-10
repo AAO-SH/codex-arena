@@ -9,7 +9,8 @@ The playful, static home of [Codex Arena](https://github.com/AAO-SH/codex-arena)
 `gh-pages` starts from an empty root commit and contains only the website. The interface is in English. HTML, CSS, and JavaScript run directly in the browser; no framework, build step, API keys, analytics, or remote runtime dependencies.
 
 - Three illustrative quests: fix a bug, review code, organize knowledge.
-- A short strategy duel that unlocks a playbook illustration.
+- Animated mascot attacks and shield blocks in a short strategy duel.
+- A celebratory playbook unlock, with skip, replay, and reduced-motion controls.
 - Copyable installation prompt and terminal commands for any workspace.
 - Responsive layout, keyboard controls, reduced-motion support, and a manual copy fallback.
 
@@ -31,7 +32,7 @@ With Node.js 22+:
 npm test
 ```
 
-No `npm install` is needed. Tests cover the demo state machine and integrity of the static publication.
+No `npm install` is needed. Tests cover the demo state machine, choreography, cancellation, focus handling, clipboard recovery, and integrity of the static publication.
 
 ## Publish
 
@@ -39,15 +40,17 @@ GitHub Pages publishes **`gh-pages` → `/`**. `.nojekyll` preserves the static 
 
 ## Edit
 
-| File                | Purpose                                                   |
-| ------------------- | --------------------------------------------------------- |
-| `index.html`        | English content, accessibility, installation instructions |
-| `styles.css`        | Responsive cartoon theme and motion                       |
-| `js/arena-state.js` | Pure demo state machine                                   |
-| `js/app.js`         | Demo controls and clipboard handling                      |
-| `assets/images/`    | Brand, arena scene, reward, favicon                       |
-| `assets/fonts/`     | Self-hosted Fredoka and its OFL license                   |
-| `docs/`             | Image provenance and verification notes                   |
+| File                  | Purpose                                                   |
+| --------------------- | --------------------------------------------------------- |
+| `index.html`          | English content, accessibility, installation instructions |
+| `styles.css`          | Responsive cartoon theme and motion                       |
+| `js/arena-state.js`   | Pure demo state machine                                   |
+| `js/duel-timeline.js` | Cancellable choreography and reduced-motion timing        |
+| `duel.css`            | Mascot motion, shields, and the finite reward celebration |
+| `js/app.js`           | Demo controls and clipboard handling                      |
+| `assets/images/`      | Brand, arena scene, reward, favicon                       |
+| `assets/fonts/`       | Self-hosted Fredoka and its OFL license                   |
+| `docs/`               | Image provenance and verification notes                   |
 
 Installation currently uses the public GitHub source. Add registry commands only after confirming the packages are publicly installable. Keep simulation labels and do not present illustrative output as verified results.
 

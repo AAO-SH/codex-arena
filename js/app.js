@@ -3,6 +3,7 @@ import {
   MISSION_LABELS,
   reduceArenaState,
 } from "./arena-state.js";
+import { scheduleDuelTimeline } from "./duel-timeline.js";
 
 const MISSION_TEAMS = Object.freeze({
   bug: Object.freeze({ a: "Test-first", b: "Trace-first" }),
@@ -19,18 +20,30 @@ const PHASE_CONTENT = Object.freeze({
   compare: {
     title: "Strategies in the arena",
     copy: "",
-    status: "Illustrated demo: comparing two approaches.",
+    status: "Duel started. Watch both strategies compete.",
   },
   validate: {
     title: "Time to verify",
     copy: "Demo: Test the method against a baseline.",
-    status: "Illustrated demo: test the method against a baseline.",
+    status: "Duel complete. Verifying the result.",
   },
   complete: {
     title: "Playbook unlocked",
     copy: "Demo: reusable scripts and instructions, ready to use.",
-    status: "Playbook unlocked. Replay to watch again.",
+    status: "Verified. Playbook unlocked. Replay to watch again.",
   },
+});
+
+const DUEL_CUES = Object.freeze({
+  ready: "Ready!",
+  "blue-attack": "Attack!",
+  "red-block": "Blocked!",
+  "red-attack": "Attack!",
+  "blue-block": "Blocked!",
+  clash: "Clash!",
+  recover: "Recover!",
+  verify: "Verified!",
+  reward: "Unlocked!",
 });
 
 const COPY_LABELS = Object.freeze({
@@ -43,25 +56,31 @@ if (typeof document !== "undefined") {
   initializeCopyButtons(document);
 }
 
-function initializeDemo(doc) {
+export function initializeDemo(doc, options = {}) {
   const arena = doc.querySelector("#arena-demo");
   if (!arena) return;
 
   const duelButton = doc.querySelector("#duel-button");
   const replayButton = doc.querySelector("#replay-button");
+  const skipButton = doc.querySelector("#skip-button");
   const phaseTitle = doc.querySelector("#phase-title");
   const phaseCopy = doc.querySelector("#phase-copy");
   const missionLabel = doc.querySelector("#mission-label");
   const demoStatus = doc.querySelector("#demo-status");
+  const duelCue = doc.querySelector("#duel-cue");
   const reward = doc.querySelector("#reward");
   const missionButtons = Array.from(doc.querySelectorAll("[data-mission]"));
   const teamLabels = Array.from(doc.querySelectorAll("[data-team-label]"));
   const steps = Array.from(doc.querySelectorAll("[data-step]"));
-  const duration = getPhaseDuration();
+  const reducedMotionQuery = Object.hasOwn(options, "motionQuery")
+    ? options.motionQuery
+    : getReducedMotionQuery();
+  let reducedMotion = Boolean(reducedMotionQuery && reducedMotionQuery.matches);
 
   let state = createInitialState();
-  let timer = null;
-  let runId = 0;
+  let beat = "ready";
+  let timeline = null;
+  const initialDuelMarkup = duelButton ? duelButton.innerHTML : "";
 
   if (demoStatus) demoStatus.setAttribute("aria-live", "polite");
 
@@ -69,6 +88,8 @@ function initializeDemo(doc) {
     const phaseContent = PHASE_CONTENT[state.phase];
     const teams = MISSION_TEAMS[state.mission];
     arena.dataset.phase = state.phase;
+    arena.dataset.beat = beat;
+    arena.dataset.reducedMotion = String(reducedMotion);
 
     if (phaseTitle) phaseTitle.textContent = phaseContent.title;
     if (phaseCopy) {
@@ -78,12 +99,24 @@ function initializeDemo(doc) {
           : phaseContent.copy;
     }
     if (missionLabel) missionLabel.textContent = MISSION_LABELS[state.mission];
-    if (demoStatus) demoStatus.textContent = phaseContent.status;
+    setTextIfChanged(demoStatus, phaseContent.status);
+    setTextIfChanged(duelCue, DUEL_CUES[beat] || "Ready!");
     if (reward) reward.hidden = state.phase !== "complete";
     if (replayButton) replayButton.hidden = state.phase !== "complete";
     if (duelButton) {
       duelButton.hidden = state.phase === "complete";
       duelButton.disabled = state.phase !== "idle";
+      if (state.phase === "compare" || state.phase === "validate") {
+        duelButton.textContent = "Dueling…";
+      } else if (duelButton.innerHTML !== initialDuelMarkup) {
+        duelButton.innerHTML = initialDuelMarkup;
+      }
+      if (duelButton.hidden) duelButton.disabled = true;
+    }
+    if (skipButton) {
+      const active = state.phase === "compare" || state.phase === "validate";
+      skipButton.hidden = !active;
+      skipButton.disabled = !active;
     }
 
     for (const label of teamLabels) {
@@ -117,52 +150,72 @@ function initializeDemo(doc) {
     }
   }
 
-  function clearTimer() {
-    if (timer !== null) {
-      globalThis.clearTimeout(timer);
-      timer = null;
-    }
-  }
-
-  function scheduleNext(expectedRunId) {
-    timer = globalThis.setTimeout(function () {
-      timer = null;
-      if (expectedRunId !== runId) return;
-
-      const focusRemainsInDemo =
-        doc.activeElement === duelButton || doc.activeElement === doc.body;
+  function applyTimelinePhase(phase) {
+    if (phase === "validate" && state.phase === "compare") {
       state = reduceArenaState(state, { type: "advance" });
+    } else if (phase === "complete") {
+      const shouldFocusReplay = Boolean(
+        skipButton && replayButton && doc.activeElement === skipButton,
+      );
+      while (state.phase !== "complete") {
+        const nextState = reduceArenaState(state, { type: "advance" });
+        if (nextState === state) break;
+        state = nextState;
+      }
       render();
-      if (state.phase === "complete" && focusRemainsInDemo && replayButton) {
-        replayButton.focus({ preventScroll: true });
-      }
+      if (shouldFocusReplay) replayButton.focus({ preventScroll: true });
+      timeline = null;
+      return;
+    }
 
-      if (state.phase === "validate") {
-        scheduleNext(expectedRunId);
-      }
-    }, duration);
+    render();
   }
 
   if (duelButton) {
     duelButton.addEventListener("click", function () {
       if (state.phase !== "idle") return;
 
-      clearTimer();
+      const shouldFocusSkip =
+        skipButton &&
+        (doc.activeElement === duelButton || doc.activeElement === doc.body);
       state = reduceArenaState(state, { type: "start" });
-      runId += 1;
-      const currentRun = runId;
+      beat = "ready";
       render();
-      scheduleNext(currentRun);
+      if (shouldFocusSkip && !skipButton.hidden) {
+        skipButton.focus({ preventScroll: true });
+      }
+
+      timeline = scheduleDuelTimeline({
+        ...options.scheduleOptions,
+        reducedMotion,
+        onPhase: applyTimelinePhase,
+        onBeat(nextBeat) {
+          beat = nextBeat;
+          render();
+        },
+      });
     });
   }
 
   if (replayButton) {
     replayButton.addEventListener("click", function () {
-      clearTimer();
-      runId += 1;
+      if (timeline) timeline.cancel();
+      timeline = null;
       state = reduceArenaState(state, { type: "replay" });
+      beat = "ready";
       render();
       if (duelButton && !duelButton.hidden) duelButton.focus();
+    });
+  }
+
+  if (skipButton) {
+    skipButton.addEventListener("click", function () {
+      if (
+        timeline &&
+        (state.phase === "compare" || state.phase === "validate")
+      ) {
+        timeline.finish();
+      }
     });
   }
 
@@ -175,8 +228,25 @@ function initializeDemo(doc) {
         type: "select-mission",
         mission: mission,
       });
+      if (state.phase === "idle") beat = "ready";
       render();
     });
+  }
+
+  if (reducedMotionQuery) {
+    const onMotionPreferenceChange = (event) => {
+      const nextReducedMotion = Boolean(event.matches);
+      if (nextReducedMotion === reducedMotion) return;
+      reducedMotion = nextReducedMotion;
+      render();
+      if (timeline) timeline.finish();
+    };
+
+    if (typeof reducedMotionQuery.addEventListener === "function") {
+      reducedMotionQuery.addEventListener("change", onMotionPreferenceChange);
+    } else if (typeof reducedMotionQuery.addListener === "function") {
+      reducedMotionQuery.addListener(onMotionPreferenceChange);
+    }
   }
 
   render();
@@ -248,17 +318,17 @@ function setStatus(element, message) {
   if (element) element.textContent = message;
 }
 
-function getPhaseDuration() {
+function getReducedMotionQuery() {
   try {
-    if (
-      typeof globalThis.matchMedia === "function" &&
-      globalThis.matchMedia("(prefers-reduced-motion: reduce)").matches
-    ) {
-      return 400;
+    if (typeof globalThis.matchMedia === "function") {
+      return globalThis.matchMedia("(prefers-reduced-motion: reduce)");
     }
   } catch {
-    // Use the normal short demo duration when matchMedia is unavailable.
+    return null;
   }
+  return null;
+}
 
-  return 1100;
+function setTextIfChanged(element, text) {
+  if (element && element.textContent !== text) element.textContent = text;
 }

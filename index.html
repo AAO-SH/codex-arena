@@ -34,6 +34,7 @@
       crossorigin
     />
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="duel.css" />
     <script type="module" src="js/app.js"></script>
   </head>
   <body>
@@ -156,17 +157,76 @@
           <div class="arena-world">
             <img
               class="arena-scene"
-              src="assets/images/arena-scene.png"
+              src="assets/images/arena-background.png"
               width="1536"
               height="1024"
-              alt="Two friendly robot pets, one in blue and one in red, face off in a sunny cartoon coliseum."
+              alt="A sunny cartoon coliseum with blue and red flags."
               fetchpriority="high"
             />
+            <div class="combat-layer" aria-hidden="true">
+              <div class="fighter fighter-blue">
+                <span class="fighter-shadow"></span>
+                <div class="fighter-unit">
+                  <div class="fighter-sprite">
+                    <img
+                      src="assets/images/duel-mascots.png"
+                      width="1774"
+                      height="887"
+                      alt=""
+                      decoding="async"
+                    />
+                  </div>
+                  <svg class="guard" viewBox="0 0 80 96">
+                    <path
+                      class="guard-fill"
+                      d="M40 5 73 18v30c0 22-33 42-33 42S7 70 7 48V18Z"
+                    />
+                    <path
+                      d="M40 16 62 25v23c0 13-22 29-22 29S18 61 18 48V25Z"
+                    />
+                    <path class="guard-check" d="m26 45 10 10 20-24" />
+                  </svg>
+                </div>
+              </div>
+              <div class="fighter fighter-red">
+                <span class="fighter-shadow"></span>
+                <div class="fighter-unit">
+                  <div class="fighter-sprite">
+                    <img
+                      src="assets/images/duel-mascots.png"
+                      width="1774"
+                      height="887"
+                      alt=""
+                      decoding="async"
+                    />
+                  </div>
+                  <svg class="guard" viewBox="0 0 80 96">
+                    <path
+                      class="guard-fill"
+                      d="M40 5 73 18v30c0 22-33 42-33 42S7 70 7 48V18Z"
+                    />
+                    <path
+                      d="M40 16 62 25v23c0 13-22 29-22 29S18 61 18 48V25Z"
+                    />
+                    <path class="guard-check" d="m26 45 10 10 20-24" />
+                  </svg>
+                </div>
+              </div>
+              <span class="energy-bolt bolt-blue"></span
+              ><span class="energy-bolt bolt-red"></span>
+              <svg class="clash-burst" viewBox="0 0 100 100">
+                <path
+                  d="m50 3 9 29 25-19-14 28 28 9-29 9 17 26-28-15-8 28-10-28-25 15 15-26L3 50l28-10-17-26 27 16Z"
+                />
+              </svg>
+              <span class="clash-ring"></span>
+            </div>
             <div class="quest-tag">
               <span class="quest-dot" aria-hidden="true"></span
               ><span id="mission-label">Fix a bug</span>
             </div>
             <div class="versus" aria-hidden="true">VS</div>
+            <p id="duel-cue" class="duel-cue" aria-hidden="true"></p>
             <div
               class="team-tag team-blue"
               data-team-label="a"
@@ -182,6 +242,50 @@
               Trace first
             </div>
             <div id="reward" class="reward" hidden>
+              <div class="reward-rays" aria-hidden="true"></div>
+              <div class="reward-confetti" aria-hidden="true">
+                <i
+                  style="--dx: -180px; --dy: -120px; --r: -240deg; --delay: 0ms"
+                ></i>
+                <i
+                  style="--dx: -130px; --dy: -175px; --r: 190deg; --delay: 55ms"
+                ></i>
+                <i
+                  style="
+                    --dx: -70px;
+                    --dy: -195px;
+                    --r: -320deg;
+                    --delay: 110ms;
+                  "
+                ></i>
+                <i
+                  style="--dx: 50px; --dy: -200px; --r: 250deg; --delay: 25ms"
+                ></i>
+                <i
+                  style="--dx: 135px; --dy: -170px; --r: -180deg; --delay: 85ms"
+                ></i>
+                <i
+                  style="--dx: 195px; --dy: -105px; --r: 300deg; --delay: 40ms"
+                ></i>
+                <i
+                  style="--dx: 210px; --dy: 10px; --r: -260deg; --delay: 120ms"
+                ></i>
+                <i
+                  style="--dx: 180px; --dy: 110px; --r: 220deg; --delay: 65ms"
+                ></i>
+                <i
+                  style="--dx: 100px; --dy: 145px; --r: -200deg; --delay: 130ms"
+                ></i>
+                <i
+                  style="--dx: -80px; --dy: 145px; --r: 300deg; --delay: 45ms"
+                ></i>
+                <i
+                  style="--dx: -155px; --dy: 100px; --r: -270deg; --delay: 95ms"
+                ></i>
+                <i
+                  style="--dx: -210px; --dy: -10px; --r: 220deg; --delay: 20ms"
+                ></i>
+              </div>
               <img
                 src="assets/images/playbook-reward.png"
                 width="768"
@@ -213,6 +317,14 @@
                 hidden
               >
                 Play again <span aria-hidden="true">↻</span>
+              </button>
+              <button
+                class="text-button skip-duel"
+                id="skip-button"
+                type="button"
+                hidden
+              >
+                Skip to reward →
               </button>
             </div>
           </div>
