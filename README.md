@@ -1,54 +1,54 @@
 <div align="center">
-  <a href="https://arena.aao.sh"><img width="680" src="assets/codex-arena-logo.png" alt="Codex Arena — dois mascotes rivais, azul e vermelho, diante de um coliseu" /></a>
+  <a href="https://arena.aao.sh"><img width="680" src="assets/codex-arena-logo.png" alt="Codex Arena — two rival mascots, blue and red, facing off before a coliseum" /></a>
 </div>
 
 <p align="center">
-  <strong>Coloque estratégias à prova. Transforme as melhores em playbooks para o seu Codex.</strong>
+  <strong>Put strategies to the test. Turn the best ones into playbooks for your Codex.</strong>
 </p>
 
 <p align="center">
   <a href="https://github.com/AAO-SH/codex-arena"><img alt="GitHub" src="https://img.shields.io/badge/GitHub-AAO--SH%2FCodex--Arena-181717?style=for-the-badge&logo=github" /></a>
-  <a href="https://github.com/AAO-SH/codex-arena/stargazers"><img alt="Estrelas" src="https://img.shields.io/github/stars/AAO-SH/codex-arena?style=for-the-badge&logo=github&color=gold" /></a>
-  <a href="LICENSE"><img alt="Licença MIT" src="https://img.shields.io/github/license/AAO-SH/codex-arena?style=for-the-badge" /></a>
-  <a href="https://github.com/AAO-SH/codex-arena/actions/workflows/tests.yml"><img alt="Testes" src="https://img.shields.io/github/actions/workflow/status/AAO-SH/codex-arena/tests.yml?branch=main&label=Testes&style=for-the-badge&logo=githubactions" /></a>
+  <a href="https://github.com/AAO-SH/codex-arena/stargazers"><img alt="Stars" src="https://img.shields.io/github/stars/AAO-SH/codex-arena?style=for-the-badge&logo=github&color=gold" /></a>
+  <a href="LICENSE"><img alt="MIT License" src="https://img.shields.io/github/license/AAO-SH/codex-arena?style=for-the-badge" /></a>
+  <a href="https://github.com/AAO-SH/codex-arena/actions/workflows/tests.yml"><img alt="Tests" src="https://img.shields.io/github/actions/workflow/status/AAO-SH/codex-arena/tests.yml?branch=main&label=Tests&style=for-the-badge&logo=githubactions" /></a>
   <br />
-  <a href="https://www.npmjs.com/package/@aao-sh/codex-arena"><img alt="Downloads mensais no npm" src="https://img.shields.io/npm/dm/%40aao-sh%2Fcodex-arena?style=for-the-badge&logo=npm&label=npm%2Fm%C3%AAs" /></a>
-  <a href="https://pypi.org/project/codex-arena/"><img alt="Downloads mensais no PyPI" src="https://img.shields.io/pypi/dm/codex-arena?style=for-the-badge&logo=pypi&label=PyPI%2Fm%C3%AAs" /></a>
-  <img alt="Python 3.11 ou mais recente" src="https://img.shields.io/badge/Python-3.11%2B-3776AB?style=for-the-badge&logo=python&logoColor=white" />
+  <a href="https://www.npmjs.com/package/@aao-sh/codex-arena"><img alt="Monthly npm downloads" src="https://img.shields.io/npm/dm/%40aao-sh%2Fcodex-arena?style=for-the-badge&logo=npm&label=npm%20per%20month" /></a>
+  <a href="https://pypi.org/project/codex-arena/"><img alt="Monthly PyPI downloads" src="https://img.shields.io/pypi/dm/codex-arena?style=for-the-badge&logo=pypi&label=PyPI%20per%20month" /></a>
+  <img alt="Python 3.11 or later" src="https://img.shields.io/badge/Python-3.11%2B-3776AB?style=for-the-badge&logo=python&logoColor=white" />
   <br /><br />
-  <a href="https://arena.aao.sh"><img alt="Site oficial" src="https://img.shields.io/badge/Website-arena.aao.sh-2F5BFF?style=for-the-badge" /></a>
-  <a href="https://telegram.aao.sh"><img alt="Comunidade no Telegram" src="https://img.shields.io/badge/Telegram-Participar-26A5E4?style=for-the-badge&logo=telegram&logoColor=white" /></a>
-  <a href="https://discord.aao.sh"><img alt="Comunidade no Discord" src="https://img.shields.io/badge/Discord-Participar-5865F2?style=for-the-badge&logo=discord&logoColor=white" /></a>
+  <a href="https://arena.aao.sh"><img alt="Official website" src="https://img.shields.io/badge/Website-arena.aao.sh-2F5BFF?style=for-the-badge" /></a>
+  <a href="https://telegram.aao.sh"><img alt="Telegram community" src="https://img.shields.io/badge/Telegram-Join-26A5E4?style=for-the-badge&logo=telegram&logoColor=white" /></a>
+  <a href="https://discord.aao.sh"><img alt="Discord community" src="https://img.shields.io/badge/Discord-Join-5865F2?style=for-the-badge&logo=discord&logoColor=white" /></a>
 </p>
 
 <hr />
 
-**Seu agente pode aprender um jeito melhor de trabalhar.** Codex Arena compara estratégias em torneios e transforma os métodos vencedores em playbooks: guias práticos com automações que o Codex pode reutilizar no seu projeto. Antes de ativá-los, mede o resultado em tarefas inéditas.
+**Your agent can learn a better way to work.** Codex Arena compares strategies in tournaments and turns winning methods into playbooks: practical guides with automations that Codex can reuse in your project. Before you activate them, it measures results on unseen tasks.
 
-## Por que usar
+## Why use it
 
-- **Encontre métodos que funcionam de novo.** Compare qualidade, tempo e consumo em tarefas recorrentes.
-- **Leve o aprendizado para o próximo trabalho.** Reutilize instruções, scripts e verificações em playbooks.
-- **Tenha controle do investimento.** Planeje a competição e defina limites antes de executar.
-- **Mantenha o conhecimento no projeto.** Consulte memória local, evidências e histórico quando precisar.
+- **Find methods that work again.** Compare quality, time, and resource use on recurring tasks.
+- **Carry what you learn into the next job.** Reuse instructions, scripts, and checks in playbooks.
+- **Keep spending under control.** Plan the competition and set limits before running it.
+- **Keep knowledge in the project.** Consult local memory, evidence, and history when you need them.
 
-## Comece pelo seu projeto
+## Get started in your project
 
-Abra a pasta em que você quer usar a Arena e peça ao Codex:
+Open the folder where you want to use Arena and ask Codex:
 
 ```text
-Instale o Codex Arena neste workspace:
+Install Codex Arena in this workspace:
 https://github.com/AAO-SH/codex-arena
-Use --bootstrap e verifique o ambiente com doctor.
-Mostre o plano antes de iniciar qualquer torneio.
+Use --bootstrap and check the environment with doctor.
+Show me the plan before starting any tournament.
 ```
 
-A instalação é local ao projeto e não inicia uma competição. Você escolhe a pasta; não existe um caminho obrigatório.
+Installation is local to the project and does not start a competition. You choose the folder; there is no required path.
 
 <details>
-<summary><strong>Prefere o terminal? npm, PyPI e instalação pelo GitHub</strong></summary>
+<summary><strong>Prefer the terminal? Install with npm, PyPI, or GitHub</strong></summary>
 
-Requer **Python 3.11+**. O npm é uma alternativa para chamar o instalador Python; também requer **Node.js 22+**. Execute os comandos dentro do workspace desejado. `--workspace .` significa “esta pasta”; você pode omitir essa opção ou informar qualquer caminho relativo ou absoluto entre aspas.
+Requires **Python 3.11+**. npm is an alternative way to run the Python installer; it also requires **Node.js 22+**. Run the commands from the workspace you want to use. `--workspace .` means “this folder”; you can omit the option or provide any relative or absolute path in quotes.
 
 ### npm
 
@@ -58,41 +58,41 @@ npx @aao-sh/codex-arena install --workspace . --bootstrap
 
 ### PyPI
 
-Com [uv](https://docs.astral.sh/uv/), execute sem instalar o comando globalmente:
+With [uv](https://docs.astral.sh/uv/), run it without installing the command globally:
 
 ```bash
 uvx --from codex-arena codex-arena install --workspace . --bootstrap
 ```
 
-Ou instale o comando em um ambiente Python à sua escolha:
+Or install the command in a Python environment of your choice:
 
 ```bash
 python -m pip install codex-arena
 codex-arena install --workspace . --bootstrap
 ```
 
-> Os comandos npm/PyPI exigem uma versão publicada nos registros. Se ela ainda não estiver listada, use a instalação pelo GitHub abaixo. Os badges exibem os dados informados pelos registros; pacotes novos podem levar algum tempo para apresentar estatísticas.
+> The npm and PyPI packages are available as version 1.0.0. Package badges use registry-reported data and may take some time to display statistics for new packages.
 
-### Pelo GitHub
+### From GitHub
 
-Na pasta em que você deseja manter o código da Arena:
+In the folder where you want to keep the Arena code:
 
 ```bash
 git clone https://github.com/AAO-SH/codex-arena.git
 cd codex-arena
 ```
 
-Execute o instalador indicando **a pasta do seu projeto**, que pode estar em qualquer lugar:
+Run the installer and point it to your project folder, wherever it is:
 
 ```bash
-python scripts/arena.py install --workspace "../seu-workspace" --bootstrap
+python scripts/arena.py install --workspace "../your-workspace" --bootstrap
 ```
 
-O caminho acima é apenas um exemplo relativo. O instalador cria o destino quando necessário, copia a skill para `.agents/skills/codex-arena`, preserva a configuração existente e acrescenta seu bloco a `.codex/config.toml`. `--bootstrap` prepara `.venv` com as dependências fixadas.
+The path above is just a relative example. The installer creates the destination if needed, copies the skill to `.agents/skills/codex-arena`, preserves existing configuration, and adds its configuration block to `.codex/config.toml`. `--bootstrap` prepares `.venv` with pinned dependencies.
 
-### Verificar a instalação
+### Verify the installation
 
-Abra o terminal na pasta do projeto instalado.
+Open a terminal in the installed project folder.
 
 **Windows / PowerShell:**
 
@@ -108,123 +108,123 @@ Abra o terminal na pasta do projeto instalado.
 .venv/bin/python .agents/skills/codex-arena/scripts/arena.py plan
 ```
 
-Para desfazer a instalação, execute o instalador do clone ou do pacote com `install --rollback --workspace "caminho/do/workspace"`. Consulte [instalação e recuperação](references/execution.md) e [distribuição npm/PyPI](references/packaging.md).
+To roll back the installation, run the installer from the clone or package with `install --rollback --workspace "path/to/workspace"`. See [Installation and recovery](references/execution.md) and [npm/PyPI distribution](references/packaging.md).
 
 </details>
 
-## Da competição ao playbook
+## From competition to playbook
 
-**Compare → aprenda → valide → reutilize.** Escolha uma família de tarefas, coloque diferentes abordagens à prova e leve os métodos aprovados para o trabalho diário.
+**Compare → learn → validate → reuse.** Choose a task family, put different approaches to the test, and bring approved methods into your everyday work.
 
 <details>
-<summary><strong>Comparar estratégias, modelos e esforços</strong></summary>
+<summary><strong>Compare strategies, models, and reasoning efforts</strong></summary>
 
-O torneio tem três etapas e uma validação adicional:
+A tournament has three stages plus an additional validation step:
 
-| Etapa | O que acontece |
+| Stage | What happens |
 |---|---|
-| Battle Royal | Todos se enfrentam; a pontuação organiza os participantes em tiers. |
-| Swiss | Cada tier disputa vagas para a fase final. |
-| Eliminação dupla | Séries de dez jogos definem o campeão de cada tier, com repescagem. |
-| Validação “+1” | Cada playbook é comparado à execução sem playbook em casos inéditos. |
+| Battle Royal | Everyone competes; scores place participants into tiers. |
+| Swiss | Each tier competes for spots in the final. |
+| Double elimination | Ten-game series determine each tier's champion, with a second-chance round. |
+| +1 validation | Each playbook is compared with a run without a playbook on unseen cases. |
 
-Os quatro tiers são **iron, copper, silver e gold**. A Arena distingue falha na tarefa, derrota por qualidade e empate. Modelos e esforços precisam ser compatíveis com o catálogo do ambiente; a política fica congelada durante a campanha. [Regras, rubrica e pontuação →](references/competition.md)
+The four tiers are **iron, copper, silver, and gold**. Arena distinguishes task failures, quality-based losses, and ties. Models and reasoning efforts must be compatible with the environment's catalog; the policy remains fixed throughout the campaign. [Rules, rubric, and scoring →](references/competition.md)
 
-Use a Arena para tarefas recorrentes com critérios observáveis, como validar contratos JSON ou comparar fluxos de desenvolvimento com testes objetivos. Uma tarefa simples e única, sem critérios ou sem casos reservados, raramente justifica um torneio.
+Use Arena for recurring tasks with observable criteria, such as validating JSON contracts or comparing development workflows with objective tests. A simple one-off task without criteria or reserved cases rarely warrants a tournament.
 
 </details>
 
 <details>
-<summary><strong>Experimentar com uma demonstração, sem inferência paga</strong></summary>
+<summary><strong>Try a demo without paid inference</strong></summary>
 
-No clone do repositório, prepare o ambiente:
+In a repository clone, prepare the environment:
 
 ```bash
 python -m venv .venv
 ```
 
-Ative-o com `.venv\Scripts\Activate.ps1` no PowerShell ou `source .venv/bin/activate` no Linux/macOS. Depois:
+Activate it with `.venv\Scripts\Activate.ps1` in PowerShell or `source .venv/bin/activate` on Linux/macOS. Then:
 
 ```bash
 python -m pip install -r requirements.txt -c constraints.txt
 python scripts/arena.py run --simulate --config examples/rules-smoke.json --cases examples/demo-suite.json --max-tokens 250000 --max-ms 180000
 python scripts/arena.py status RUN_ID
-python scripts/arena.py report RUN_ID --output relatorio.json
+python scripts/arena.py report RUN_ID --output report.json
 python scripts/arena.py playbook build --demo --name json-contract-demo
 python scripts/arena.py playbook verify json-contract-demo
 ```
 
-Troque `RUN_ID` pelo identificador retornado na execução. Os exemplos públicos demonstram os contratos; **simulação não mede qualidade real nem autoriza ativação de playbooks**. [Evidências de verificação →](references/verification.md)
+Replace `RUN_ID` with the identifier returned by the run. The public examples demonstrate the contracts; **simulation does not measure real-world quality or authorize playbook activation**. [Verification evidence →](references/verification.md)
 
 </details>
 
 <details>
-<summary><strong>Planejar uma campanha real e ativar um playbook</strong></summary>
+<summary><strong>Plan a real campaign and activate a playbook</strong></summary>
 
-1. Copie [`assets/default-config.json`](assets/default-config.json) e ajuste regras, políticas, critérios e preços.
-2. Prepare ao menos cinco casos de competição (`split: train`) e cinco reservados (`split: holdout`), conforme o [schema de casos](schemas/cases.schema.json). Mantenha os casos inéditos fora de prompts, memória, plugins e índices.
-3. Execute `doctor --json`, `models` e `plan --config regras.json` para verificar capacidades e estimar o trabalho.
-4. Inicie com `run --config regras.json --cases suite.json --max-tokens N --max-ms N`, substituindo `N` pelos limites autorizados.
-5. Acompanhe com `status` e `report`. `resume` recebe limites **totais**; chamadas com conclusão incerta exigem conciliação antes de qualquer decisão de reexecução.
-6. Com a campanha completa e campeões nos quatro tiers, use `playbook build --from-run RUN_ID --name nome --max-tokens N --max-ms N`.
-7. Valide o candidato congelado com `playbook validate nome --cases holdouts.json --tier all --max-tokens N --max-ms N`. Ative apenas tiers aprovados: `playbook activate nome --tier gold`. Consulte suas instruções com `playbook show nome`.
+1. Copy [`assets/default-config.json`](assets/default-config.json) and adjust the rules, policies, criteria, and prices.
+2. Prepare at least five competition cases (`split: train`) and five reserved cases (`split: holdout`), as described by the [case schema](schemas/cases.schema.json). Keep unseen cases out of prompts, memory, plugins, and indexes.
+3. Run `doctor --json`, `models`, and `plan --config rules.json` to check capabilities and estimate the work.
+4. Start with `run --config rules.json --cases suite.json --max-tokens N --max-ms N`, replacing `N` with the authorized limits.
+5. Monitor with `status` and `report`. `resume` takes **total** limits; calls with uncertain completion require reconciliation before any decision to rerun.
+6. Once the campaign is complete and champions have been selected in all four tiers, run `playbook build --from-run RUN_ID --name playbook-name --max-tokens N --max-ms N`.
+7. Validate the frozen candidate with `playbook validate playbook-name --cases holdouts.json --tier all --max-tokens N --max-ms N`. Activate only approved tiers: `playbook activate playbook-name --tier gold`. View its instructions with `playbook show playbook-name`.
 
-A validação exige ao menos cinco casos inéditos e três repetições por caso e variante. O padrão de 100 competidores envolve **4.950 confrontos só no Battle Royal**; consulte o plano e dimensione a campanha antes de executá-la.
+Validation requires at least five unseen cases and three repetitions per case and variant. The default of 100 contestants involves **4,950 matchups in Battle Royal alone**; review the plan and size the campaign before running it.
 
-Campanhas reais requerem Codex CLI autenticado e um backend de sandbox que aplique leitura restrita. O sandbox Windows legado pode não atender a esse requisito; nesses ambientes, a Arena bloqueia o despacho. Consulte os [requisitos de execução](references/execution.md) para usar um backend compatível.
+Real campaigns require an authenticated Codex CLI and a sandbox backend that enforces restricted reads. The legacy Windows sandbox may not meet this requirement; in those environments, Arena blocks dispatch. See the [execution requirements](references/execution.md) for a compatible backend.
 
-Os limites locais controlam reservas e duração acumulada; não garantem o valor final faturado pelo provedor. Custos calculados com preços de API são estimativas equivalentes. [Playbooks, validação e plugins →](references/playbooks.md)
+Local limits control reservations and cumulative duration; they do not guarantee the provider's final billed amount. Costs based on API pricing are equivalent estimates. [Playbooks, validation, and plugins →](references/playbooks.md)
 
 </details>
 
 <details>
-<summary><strong>Memória, plugins, comandos e arquivos do projeto</strong></summary>
+<summary><strong>Memory, plugins, commands, and project files</strong></summary>
 
-Recupere conhecimento com busca híbrida local e fontes identificadas. Plugins acrescentam comportamentos após verificação de compatibilidade. Documentos de conhecimento e playbooks seguem **OKF 0.2**; este README de apresentação não exige frontmatter.
+Retrieve knowledge with local hybrid search and identified sources. Plugins add behaviors after compatibility checks. Knowledge documents and playbooks follow **OKF 0.2**; this showcase README does not require front matter.
 
-| Comandos | Finalidade |
+| Commands | Purpose |
 |---|---|
-| `install`, `doctor`, `models`, `plan` | Instalação, diagnóstico, catálogo e planejamento |
-| `run`, `resume`, `status`, `report`, `reconcile` | Execução, acompanhamento e recuperação |
-| `playbook build/validate/activate/verify/show` | Geração e consumo de playbooks |
-| `plugin check/enable/disable` | Composição de comportamentos |
-| `memory download/index/search/graph` | Embeddings, busca e conhecimento local |
-| `keys rotate/revoke` | Chaves e confiança |
+| `install`, `doctor`, `models`, `plan` | Installation, diagnostics, catalog, and planning |
+| `run`, `resume`, `status`, `report`, `reconcile` | Execution, monitoring, and recovery |
+| `playbook build/validate/activate/verify/show` | Build and use playbooks |
+| `plugin check/enable/disable` | Compose behaviors |
+| `memory download/index/search/graph` | Embeddings, search, and local knowledge |
+| `keys rotate/revoke` | Keys and trust |
 
-Use `python scripts/arena.py --help` no clone. No projeto instalado, use o Python de `.venv` com `.agents/skills/codex-arena/scripts/arena.py`.
+Use `python scripts/arena.py --help` in the clone. In an installed project, use the workspace's `.venv` Python with `.agents/skills/codex-arena/scripts/arena.py`.
 
-| Pasta no workspace | Conteúdo |
+| Workspace folder | Contents |
 |---|---|
-| `.agents/skills/codex-arena` | Skill instalada |
-| `.codex/arena` | Chaves, aprovações e cache de embeddings |
-| `.docs` | Documentos e grafo de conhecimento |
-| `.memory/arena` | Estado e índices locais |
-| `.scratch/arena` | Execuções, debates e candidatos |
-| `.playbooks/<nome>` | Playbooks e evidências |
+| `.agents/skills/codex-arena` | Installed skill |
+| `.codex/arena` | Keys, approvals, and embedding cache |
+| `.docs` | Documents and knowledge graph |
+| `.memory/arena` | Local state and indexes |
+| `.scratch/arena` | Runs, debates, and candidates |
+| `.playbooks/<name>` | Playbooks and evidence |
 
-[Memória e recuperação →](references/memory.md) · [Arquitetura e contratos →](references/architecture.md)
+[Memory and retrieval →](references/memory.md) · [Architecture and contracts →](references/architecture.md)
 
 </details>
 
 <details>
-<summary><strong>Desenvolvimento, testes e publicação de pacotes</strong></summary>
+<summary><strong>Development, tests, and package publishing</strong></summary>
 
-No clone, com o ambiente Python ativado:
+In the clone, with the Python environment activated:
 
 ```bash
 python -m pip install -r requirements-dev.txt -r requirements-publish.txt
 python -m pytest -q
 ```
 
-Os testes de distribuição também requerem Node.js 22+. A suíte usa um executor simulado e não dispara torneios pagos. A CI cobre Windows, Linux e macOS com Python 3.11 e 3.12. Consulte [as evidências e os limites da verificação](references/verification.md) e [como construir e publicar os pacotes](references/packaging.md).
+Distribution tests also require Node.js 22+. The suite uses a simulated executor and does not run paid tournaments. CI covers Windows, Linux, and macOS with Python 3.11 and 3.12. See [verification evidence and limits](references/verification.md) and [building and publishing the packages](references/packaging.md).
 
 </details>
 
-## Comunidade e agradecimentos
+## Community and acknowledgments
 
-Uma iniciativa da [AAO.sh](https://aao.sh). Compartilhe ideias e experiências no [Telegram](https://telegram.aao.sh) e no [Discord](https://discord.aao.sh), ou contribua pelo [GitHub](https://github.com/AAO-SH/codex-arena).
+An [AAO.sh](https://aao.sh) initiative. Share ideas and experiences on [Telegram](https://telegram.aao.sh) and [Discord](https://discord.aao.sh), or contribute on [GitHub](https://github.com/AAO-SH/codex-arena).
 
-Inspirado na [Arena de Jake Schincariol](https://github.com/Jakeschincariol/arena-skill/tree/df07b8e518e10cdecd8cd7712d9958b6f396250e), com atribuição MIT preservada. Apresentação alinhada ao [Fable Harness](https://github.com/AAO-SH/fable-harness). [Créditos completos](NOTICE.md) · [Fontes técnicas](references/sources.md).
+Inspired by [Jake Schincariol's Arena](https://github.com/Jakeschincariol/arena-skill/tree/df07b8e518e10cdecd8cd7712d9958b6f396250e), with MIT attribution preserved. The presentation is aligned with [Fable Harness](https://github.com/AAO-SH/fable-harness). [Full credits](NOTICE.md) · [Technical sources](references/sources.md).
 
 <br />
 
@@ -236,6 +236,6 @@ Inspirado na [Arena de Jake Schincariol](https://github.com/Jakeschincariol/aren
     </picture>
   </a>
   <br />
-  Desenvolvido e mantido pela <a href="https://github.com/AAO-SH/codex-arena/graphs/contributors">comunidade AAO.sh</a>.<br />
-  <a href="https://arena.aao.sh">arena.aao.sh</a> · <a href="LICENSE">Licença MIT</a>
+  Built and maintained by the <a href="https://github.com/AAO-SH/codex-arena/graphs/contributors">AAO.sh community</a>.<br />
+  <a href="https://arena.aao.sh">arena.aao.sh</a> · <a href="LICENSE">MIT License</a>
 </p>
