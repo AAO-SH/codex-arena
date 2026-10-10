@@ -47,6 +47,8 @@ _EXCLUDED_DIRS = {
     ".agents",
     ".docs",
     ".playbooks",
+    "build",
+    "dist",
     ".ssh",
     ".aws",
     ".azure",
@@ -110,7 +112,7 @@ def _reject_symlink_components(path: Path, stop: Path) -> None:
 
 def _excluded_directory(name: str) -> bool:
     lowered = name.casefold()
-    return lowered in _EXCLUDED_DIRS
+    return lowered in _EXCLUDED_DIRS or lowered.endswith(".egg-info")
 
 
 def _excluded_file(name: str) -> bool:

@@ -1,0 +1,3 @@
+# Build and registry metadata checks; not required by installed skills.
+build==1.6.1
+twine==7.0.0

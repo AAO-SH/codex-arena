@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools==84.0.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "codex-arena"
+version = "1.0.0"
+description = "Install and run the Codex Arena project skill."
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "AAO-SH" }]
+keywords = ["codex", "arena", "skill", "playbooks"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Environment :: Console",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Software Development",
+]
+dependencies = []
+
+[project.urls]
+Homepage = "https://arena.aao.sh"
+Repository = "https://github.com/AAO-SH/codex-arena.git"
+Issues = "https://github.com/AAO-SH/codex-arena/issues"
+
+[project.scripts]
+codex-arena = "codex_arena.cli:main"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["codex_arena"]
+namespaces = false

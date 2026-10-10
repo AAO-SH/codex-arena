@@ -1,0 +1,32 @@
+{
+  "name": "@aao-sh/codex-arena",
+  "version": "1.0.0",
+  "description": "Install and run the Codex Arena project skill.",
+  "license": "MIT",
+  "author": "AAO-SH",
+  "homepage": "https://arena.aao.sh",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AAO-SH/codex-arena.git"
+  },
+  "bugs": {
+    "url": "https://github.com/AAO-SH/codex-arena/issues"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "bin": {
+    "codex-arena": "bin/codex-arena.js"
+  },
+  "files": [
+    "bin/",
+    "payload/",
+    "README.md",
+    "LICENSE",
+    "NOTICE.md"
+  ]
+}

@@ -18,6 +18,13 @@ __pycache__/
 /build/
 /dist/
 *.egg-info/
+/node_modules/
+/.npm/
+*.tgz
+npm-debug.log*
+/packaging/.stage/
+/.pypirc
+/.npmrc
 
 # Local credentials and machine settings
 .env

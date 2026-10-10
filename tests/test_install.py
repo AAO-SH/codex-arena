@@ -31,6 +31,9 @@ def make_source(root: Path) -> Path:
         "secrets",
         ".ssh",
         ".aws",
+        "build",
+        "dist",
+        "codex_arena.egg-info",
     ):
         excluded = root / directory
         excluded.mkdir()
@@ -79,6 +82,9 @@ def test_install_is_idempotent_preserves_foreign_config_and_excludes_private_sta
         "secrets",
         ".ssh",
         ".aws",
+        "build",
+        "dist",
+        "codex_arena.egg-info",
     ):
         assert not (package / directory).exists()
     inventory = json.loads((package / ".arena-install.json").read_text(encoding="utf-8"))
