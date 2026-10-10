@@ -37,7 +37,10 @@
 Abra a pasta em que você quer usar a Arena e peça ao Codex:
 
 ```text
-Instale o Codex Arena neste workspace a partir de https://github.com/AAO-SH/codex-arena. Use --bootstrap, verifique o ambiente com doctor e mostre o plano antes de iniciar qualquer torneio.
+Instale o Codex Arena neste workspace:
+https://github.com/AAO-SH/codex-arena
+Use --bootstrap e verifique o ambiente com doctor.
+Mostre o plano antes de iniciar qualquer torneio.
 ```
 
 A instalação é local ao projeto e não inicia uma competição. Você escolhe a pasta; não existe um caminho obrigatório.

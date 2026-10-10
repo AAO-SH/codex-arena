@@ -9,7 +9,7 @@ Ambiente: Windows, Python 3.12.2, Codex CLI `0.162.0-alpha.17.2`.
 
 ## Testes automatizados
 
-A suíte completa final passou com **159 testes em 118,05 segundos**, incluindo a inspeção de plugins em candidatos e os bloqueios de ativação. Comandos:
+A distribuição com os instaladores npm/PyPI passou com **167 testes em cada uma das seis combinações** de Windows, Linux e macOS com Python 3.11 e 3.12 no [GitHub Actions](https://github.com/AAO-SH/codex-arena/actions/runs/38077264501). A suíte cobre também a inspeção de plugins em candidatos e os bloqueios de ativação. Comandos:
 
 ```powershell
 .venv/Scripts/python.exe -m pytest -q
@@ -18,6 +18,8 @@ A suíte completa final passou com **159 testes em 118,05 segundos**, incluindo 
 ```
 
 A compilação Python, a consistência das dependências e o validador de estrutura de skills do Codex também passaram.
+
+Os testes de empacotamento instalam a distribuição npm, instalam a wheel em um ambiente Python isolado e reconstroem a wheel a partir do sdist. Verificam caminhos com espaços e Unicode, arquivos incluídos, exclusão de dados locais e os comandos de instalação e diagnóstico. O tarball npm também foi executado com `npx` e `--bootstrap` em um workspace descartável: o ambiente foi criado e o CLI instalado retornou o plano de 100 competidores sem inferência. A verificação `twine check --strict` aprovou os metadados da wheel e do sdist.
 
 A skill foi instalada neste workspace em `.agents/skills/codex-arena`, com registro local em `.codex/config.toml`. O comando `plan --json` executado a partir da cópia instalada retornou o planejamento de 100 competidores sem inferência.
 
@@ -42,4 +44,4 @@ O playbook demonstrativo `json-contract-demo` contém os quatro tiers, automaç�
 
 **Nenhuma inferência paga nem torneio real foi executado.** O diagnóstico sem inferência retorna `ready: false` neste host: o sandbox Windows disponível recusa a restrição de leitura necessária, com `elevated Windows sandbox requires effective :root read access`. O executor interrompe o fluxo antes de despachar modelos. Os requisitos do backend estão em [execução](execution.md).
 
-Linux e macOS têm matriz de CI configurada, mas não foram executados neste ambiente. A validação de comportamento entre variantes foi exercitada com o executor simulado; medir melhoria real exige uma campanha pequena com orçamento explícito, backend compatível e novos casos reservados.
+Windows, Linux e macOS foram verificados nos runners do GitHub Actions; as verificações de catálogo e embeddings descritas acima ocorreram no host Windows. A validação de comportamento entre variantes foi exercitada com o executor simulado; medir melhoria real exige uma campanha pequena com orçamento explícito, backend compatível e novos casos reservados.
