@@ -24,7 +24,7 @@ def parser():
     common.add_argument('--config',default=argparse.SUPPRESS,help='Regras JSON completas')
     common.add_argument('--json',action='store_true',default=argparse.SUPPRESS,help='Saída estruturada')
     main = Parser(description=__doc__,parents=[common])
-    main.add_argument('--version',action='version',version='codex-arena 1.0.0')
+    main.add_argument('--version',action='version',version='codex-arena 1.0.1')
     commands = main.add_subparsers(dest='command',required=True,parser_class=Parser)
     def command(group,name,help): return group.add_parser(name,help=help,parents=[common])
     def budget(p,required=True):

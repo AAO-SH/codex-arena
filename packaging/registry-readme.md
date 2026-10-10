@@ -2,19 +2,19 @@
 
 ![Codex Arena](https://raw.githubusercontent.com/AAO-SH/codex-arena/main/assets/codex-arena-logo.png)
 
-Coloque estratégias à prova e transforme os melhores métodos em playbooks reutilizáveis para o Codex. Compare estratégias, modelos e esforços em tarefas recorrentes, com configuração e resultados locais ao seu projeto.
+Put strategies to the test and turn the best methods into reusable playbooks for Codex. Compare strategies, models, and reasoning efforts on recurring tasks, with configuration and results stored in your project.
 
-Requer Python 3.11+. O comando npm também requer Node.js 22+. A instalação do pacote não inicia torneios nem instala as dependências de execução automaticamente.
+Requires Python 3.11+. The npm command also requires Node.js 22+. Installing the package does not start tournaments or install runtime dependencies automatically.
 
 ```bash
 npx @aao-sh/codex-arena install --workspace . --bootstrap
 uvx --from codex-arena codex-arena install --workspace . --bootstrap
 ```
 
-Execute dentro do projeto desejado; `--workspace .` usa a pasta atual. `--bootstrap` prepara `.venv` no workspace e instala as dependências fixadas da skill. Omita essa opção para instalar somente os arquivos.
+Run from your project folder; `--workspace .` uses the current directory. `--bootstrap` creates `.venv` in the workspace and installs the skill's pinned dependencies. Omit it to install only the files.
 
-- [Documentação](https://github.com/AAO-SH/codex-arena/blob/main/README.md)
-- [Instalação e distribuição](https://github.com/AAO-SH/codex-arena/blob/main/references/packaging.md)
-- [Código-fonte](https://github.com/AAO-SH/codex-arena)
+- [Documentation](https://github.com/AAO-SH/codex-arena/blob/main/README.md)
+- [Installation and distribution](https://github.com/AAO-SH/codex-arena/blob/main/references/packaging.md)
+- [Source code](https://github.com/AAO-SH/codex-arena)
 
-Uma iniciativa da [AAO.sh](https://aao.sh). [arena.aao.sh](https://arena.aao.sh) · Licença MIT.
+An [AAO.sh](https://aao.sh) project. [arena.aao.sh](https://arena.aao.sh) · MIT License.

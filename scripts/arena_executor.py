@@ -185,7 +185,7 @@ def discover_models(command=None, timeout_ms=15000) -> dict:
                         raise RuntimeError(str(event['error']))
                     return event['result']
             raise RuntimeError('model/list timed out')
-        send({'id':1,'method':'initialize','params':{'clientInfo':{'name':'codex_arena','version':'1.0.0'}}})
+        send({'id':1,'method':'initialize','params':{'clientInfo':{'name':'codex_arena','version':'1.0.1'}}})
         receive(1)
         send({'method':'initialized','params':{}})
         models, cursor, page = [], None, 2

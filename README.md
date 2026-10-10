@@ -71,7 +71,7 @@ python -m pip install codex-arena
 codex-arena install --workspace . --bootstrap
 ```
 
-> The npm and PyPI packages are available as version 1.0.0. Package badges use registry-reported data and may take some time to display statistics for new packages.
+> The npm and PyPI packages are available. Package badges show registry-reported versions and download statistics.
 
 ### From GitHub
 

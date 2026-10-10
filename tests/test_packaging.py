@@ -108,11 +108,11 @@ def test_npm_tarball_runs_packaged_cli_in_unicode_workspace(
         env=python_env,
     )
     assert "install" in listing
-    assert "1.0.0" in _run(
+    assert _run(
         [node, str(package_root / "bin" / "codex-arena.js"), "--version"],
         cwd=tmp_path,
         env=python_env,
-    )
+    ).strip() == f"codex-arena {package_metadata['version']}"
 
     workspace = tmp_path / "Projeto Ω com espaço"
     workspace.mkdir()
