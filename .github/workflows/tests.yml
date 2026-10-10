@@ -3,6 +3,7 @@ on: [push, pull_request]
 jobs:
   unit:
     strategy:
+      fail-fast: false
       matrix:
         os: [windows-latest, ubuntu-latest, macos-latest]
         python: ['3.11', '3.12']
@@ -18,5 +19,5 @@ jobs:
           node-version: '22'
           package-manager-cache: false
       - run: python -m pip install -r requirements-dev.txt -r requirements-publish.txt
-      - run: python -m pytest -q
+      - run: python -m pytest -q --durations=10
       - run: python -m compileall -q scripts

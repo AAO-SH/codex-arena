@@ -7,9 +7,9 @@ import pytest
 from scripts.arena_config import ROOT, load_config
 
 
-def cli(*args, ok=True):
+def cli(*args, ok=True, timeout=60):
     result = subprocess.run([sys.executable, str(ROOT/'scripts/arena.py'), *map(str,args)],
-                            capture_output=True,text=True,encoding='utf-8',timeout=60)
+                            capture_output=True,text=True,encoding='utf-8',timeout=timeout)
     assert (result.returncode == 0) is ok, result.stderr+result.stdout
     return json.loads(result.stdout)
 
@@ -33,10 +33,15 @@ def test_cli_smoke_resume_report_and_demo(tmp_path):
     cases = tmp_path/'suite.json'
     cases.write_text(json.dumps(suite),encoding='utf-8')
     common = ['--workspace',tmp_path,'--json']
+    campaign_budget_ms = 120000
+    # The subprocess must outlive the campaign budget, including CLI startup
+    # and final checkpoints/reporting on slower Windows runners.
+    campaign_timeout = campaign_budget_ms / 1000 + 60
     first = cli('run','--simulate','--config',path,'--cases',cases,'--max-tokens',100000,
-                '--max-ms',120000,'--max-matches',2,*common)
+                '--max-ms',campaign_budget_ms,'--max-matches',2,*common,timeout=campaign_timeout)
     assert first['matches'] == 2
-    final = cli('resume',first['run_id'],'--max-tokens',200000,'--max-ms',120000,*common)
+    final = cli('resume',first['run_id'],'--max-tokens',200000,'--max-ms',campaign_budget_ms,
+                *common,timeout=campaign_timeout)
     assert final['status'] == 'complete'
     assert len([v for v in final['champions'].values() if v]) == 4
     report = cli('report',first['run_id'],*common)
